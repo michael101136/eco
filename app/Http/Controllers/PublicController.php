@@ -29,29 +29,29 @@ class PublicController extends Controller
         {
             // Session()->flush();
        
-            $toursRecomendadosTren=publicTours::toursRecomendadosTren($idioma,'1');
+            // $toursRecomendadosTren=publicTours::toursRecomendadosTren($idioma,'1');
 
 
-            $toursRecomendadosCarro=publicTours::toursRecomendadosCarro($idioma,'1');
+            // $toursRecomendadosCarro=publicTours::toursRecomendadosCarro($idioma,'1');
             
             
             
-            $toursPrincipal=publicTours::toursPrincipal($idioma,'1');
+            // $toursPrincipal=publicTours::toursPrincipal($idioma,'1');
 
              
 
-            $toursCan=publicTours::toursCan($idioma);
+            // $toursCan=publicTours::toursCan($idioma);
 
        
-            $toursUnaPersona=publicTours::toursUnaPersona($idioma,'3');
+            // $toursUnaPersona=publicTours::toursUnaPersona($idioma,'3');
            
             // dd($toursUnaPersona);
     
-            $testimonio= DB::table('testimonials')
-                            ->select('id','testimonial','photo','name','nationality','date')
-                            ->where('language','=',$idioma)
-                            ->where('status','=','1')
-                            ->paginate(10);
+            // $testimonio= DB::table('testimonials')
+            //                 ->select('id','testimonial','photo','name','nationality','date')
+            //                 ->where('language','=',$idioma)
+            //                 ->where('status','=','1')
+            //                 ->paginate(10);
             
 
             $toursPorCategoria=DB::table('tours')
@@ -63,7 +63,9 @@ class PublicController extends Controller
                             ->where('languages.abbr','=',$idioma)
                             ->paginate(8);
 
-            return view("assets.pagina.".$idioma.".inicio",['tourPrincipal' => $toursPrincipal,'toursRecomendadosTren' => $toursRecomendadosTren,'toursRecomendadosCarro' => $toursRecomendadosCarro,'testimonio' => $testimonio,'toursPorCategoria' => $toursPorCategoria,'toursCan'=>$toursCan,'toursUnaPersona'=>$toursUnaPersona]);
+            // dd($toursPorCategoria);
+            // return view("assets.pagina.".$idioma.".inicio",['tourPrincipal' => $toursPrincipal,'toursRecomendadosTren' => $toursRecomendadosTren,'toursRecomendadosCarro' => $toursRecomendadosCarro,'testimonio' => $testimonio,'toursPorCategoria' => $toursPorCategoria,'toursCan'=>$toursCan,'toursUnaPersona'=>$toursUnaPersona]);
+            return view("assets.pagina.".$idioma.".inicio",['toursPorCategoria' => $toursPorCategoria]);
         }else
         {
               

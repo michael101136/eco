@@ -26,24 +26,21 @@
             </div>
         <!-- header-bot -->
         <div class="col-md-4 agileits-social top_content">
-                        <ul class="social-nav model-3d-0 footer-social w3_agile_social">
-                                                           <li class="share">Share On : </li>
-                                                            <li><a href="#" class="facebook">
-                                                                  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-                                                                  <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
-                                                            <li><a href="#" class="twitter"> 
-                                                                  <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                                                                  <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
-                                                            <li><a href="#" class="instagram">
-                                                                  <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                                                                  <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
-                                                            <li><a href="#" class="pinterest">
-                                                                  <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-                                                                  <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
-                                                        </ul>
-
-
-
+            <ul class="social-nav model-3d-0 footer-social w3_agile_social">
+                <li class="share">Share On : </li>
+                <li><a href="#" class="facebook">
+                    <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+                <li><a href="#" class="twitter"> 
+                    <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+                <li><a href="#" class="instagram">
+                    <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+                <li><a href="#" class="pinterest">
+                    <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                    <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
+            </ul>
         </div>
         <div class="clearfix"></div>
     </div>
@@ -67,10 +64,10 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav menu__list">
-                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
-                    <li class=" menu__item"><a class="menu__link" href="about.html">About</a></li>
+                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.html">Inicio <span class="sr-only">(current)</span></a></li>
+                    <li class=" menu__item"><a class="menu__link" href="about.html">Nosotros</a></li>
                     <li class="dropdown menu__item">
-                        <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Men's wear <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categoria <span class="caret"></span></a>
                             <ul class="dropdown-menu multi-column columns-3">
                                 <div class="agile_inner_drop_nav_info">
                                     <div class="col-sm-6 multi-gd-img1 multi-gd-text ">
@@ -83,8 +80,6 @@
                                             <li><a href="mens.html">Footwear</a></li>
                                             <li><a href="mens.html">Watches</a></li>
                                             <li><a href="mens.html">Accessories</a></li>
-                                            <li><a href="mens.html">Bags</a></li>
-                                            <li><a href="mens.html">Caps & Hats</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-3 multi-gd-img">
@@ -94,8 +89,6 @@
                                             <li><a href="mens.html">Perfumes</a></li>
                                             <li><a href="mens.html">Beauty</a></li>
                                             <li><a href="mens.html">Shirts</a></li>
-                                            <li><a href="mens.html">Sunglasses</a></li>
-                                            <li><a href="mens.html">Swimwear</a></li>
                                         </ul>
                                     </div>
                                     <div class="clearfix"></div>
@@ -142,7 +135,7 @@
                                     <li><a href="typography.html">Typography</a></li>
                                 </ul>
                     </li>
-                    <li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+                    <li class=" menu__item"><a class="menu__link" href="contact.html">Contacto</a></li>
                   </ul>
                 </div>
               </div>
