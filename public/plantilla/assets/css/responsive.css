@@ -1,0 +1,49 @@
+
+@media (min-width: 1281px) {
+ 
+  #logoPrincipal{
+    
+        margin-top: -17px;
+    height: 77px;
+    width: 110px;
+       
+  }
+ 
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+
+  
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+
+  
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+
+  
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+   #Logo_idioma {
+        height: 50px;
+        width: 100px;
+
+  }
+  #logoPrincipal{
+       margin-top: -8px;
+       height: 50px;
+       width: 75px;
+       
+  }
+}
