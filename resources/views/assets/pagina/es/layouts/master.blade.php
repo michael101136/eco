@@ -96,199 +96,273 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
-    
-    <script type='text/javascript'>
-var _chatnox = _chatnox || [];_chatnox.setAccount = '184880002';
-var cnox = document.createElement('script');cnox.type = 'text/javascript';
-cnox.async = true;cnox.src = ('https:' == document.location.protocol ? 'https://app.chatnox.com' : 'http://app.chatnox.com') 
-+ '/site/chat.js';
-var s = document.getElementsByTagName('script')[0];
-s.parentNode.insertBefore(cnox, s);
-</script>
-   
+
       @include('assets.pagina.es.layouts.navbar')
 
     @yield('content')
 
 
-
-
-<!-- Footer Section -->
-  <BR>
-<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
-        <footer>
-            
-            <div class="container">
-              
-                <div class="row">
-                    <!-- Address -->
-                    <div class="col-sm-4 col-md-3">
-                        <div class="footer-box">
-                            <h4 class="footer-title">CONTACTO</h4>
-                            <div class="address">
-                                <i class="flaticon-placeholder"></i>
-                                <p> Av. 28 de Julio Mz. R-2<br>
-                                   Oficina 201 - Cusco</p>
-                            </div>
-                            <div class="address">
-                                <i class="flaticon-customer-service"></i>
-                                <p> 0051 084 584 272</p>
-                            </div>
-                            <div class="address">
-                           
-                                <p> MOVISTAR :+051 984 987 798</p>
-                                <p> CLARO :+051 982 505 892</p>
-                                <p> ENTEL :0051 084 584 272</p>
-                            </div>
-                            
-
-                            <div class="address">
-                                <i class="flaticon-mail"></i>
-                                <p>reservas@machupicchugolden.com</p>
-                                <p>info@machupicchugolden.com</p>
-                                <p>ventas@machupicchugolden.com</p>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col-sm-8 col-md-6">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4">
-                                <div class="footer-box">
-                                    <h4 class="footer-title">M&EacuteTODOS DE PAGO</h4>
-                                  <ul class="gallery-list">
-                                <li> 
-                                    <a href="https://www.visanetlink.pe/pagoseguro/MACHUPICCHUGOLDEN/33365" target="_blank">
-                                        <img src="https://comercio.visanetonline.pe/images/visa-net.png" alt="" style="height: 37px;width: 118px;">
-                                    </a>
-                                     <a href="https://www.paypal.com/cgi-bin/webscr" target="_blank">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/1280px-PayPal.svg.png" alt="" style="height: 37px;width: 118px;">
-                                    </a>
-                                     <a href="https://www.visanetlink.pe/pagoseguro/MACHUPICCHUGOLDEN/33365" target="_blank">
-                                        <img src="https://www.machupicchugolden.com/wp-content/uploads/2016/11/western-union-active-peru-treks.jpg" alt="" style="height: 37px;width: 118px;">
-                                    </a>
-                                </li>
+<div class="footer">
+  <div class="footer_agile_inner_info_w3l">
+    <div class="col-md-3 footer-left">
+      <h2><a href="index.html"><span>E</span>lite Shoppy </a></h2>
+      <p>Lorem ipsum quia dolor
+      sit amet, consectetur, adipisci velit, sed quia non 
+      numquam eius modi tempora.</p>
+      <ul class="social-nav model-3d-0 footer-social w3_agile_social two">
+                              <li><a href="#" class="facebook">
+                                  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+                              <li><a href="#" class="twitter"> 
+                                  <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+                              <li><a href="#" class="instagram">
+                                  <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+                              <li><a href="#" class="pinterest">
+                                  <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
                             </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="footer-box">
-                                    <h4 class="footer-title">SOCIOS</h4>
-                                    <ul class="categoty">
-                                        <li><a href="http://www.perumachupicchutravels.com/">PER&Uacute MACHUPICCHU TRAVEL</a></li>
-                                      
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-4">
-                                <div class="footer-box">
-                                    <h4 class="footer-title">DESTINOS</h4>
-                                    <ul class="categoty">
-                                        <li><a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'cusco'])}}">CUSCO</a></li>
-                                        <li><a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'puno'])}}">PUNO</a></li>
-                                        <li><a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'arequipa'])}}">AREQUIPA</a></li>
-                                        <li><a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'lima'])}}">LIMA</a></li>
-                                        <li><a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'selva'])}}">SELVA</a></li>
-                                        <li><a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'nazca'])}}">NAZCA</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 hidden-sm">
-                        <div class="footer-box">
-                           
-                            <h4 class="footer-title">REDES SOCIALES</h4>
-                            <!--<div style="width: 300px;height: 380px;overflow-y: scroll;overflow-y:hidden;position: absolute;">-->
-                             
-                                <div class="fb-page" data-href="https://www.facebook.com/goldenmachupicchu/" data-tabs="timeline" data-width="250" data-height="380" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true">
-                                     <blockquote cite="https://www.facebook.com/goldenmachupicchu/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/goldenmachupicchu/">Machupicchu Golden</a>
-                                     </blockquote>
-                                 </div>
-                             
-                            <!--</div>-->
-                            
-                            
-                           
-                        </div>
-                        
-                        
-                        
-                    </div>
-                    <div class="col-md-3 col-sm-6 hidden-sm">
-                        <div class="footer-box">
-                            
-                         
-                           
-                        </div>
-                        
-                        
-                        
-                    </div>
-                    
-                </div>
+    </div>
+    <div class="col-md-9 footer-right">
+      <div class="sign-grds">
+        <div class="col-md-4 sign-gd">
+          <h4>Our <span>Information</span> </h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="mens.html">Men's Wear</a></li>
+            <li><a href="womens.html">Women's wear</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="typography.html">Short Codes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-md-5 sign-gd-two">
+          <h4>Store <span>Information</span></h4>
+          <div class="w3-address">
+            <div class="w3-address-grid">
+              <div class="w3-address-left">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+              </div>
+              <div class="w3-address-right">
+                <h6>Phone Number</h6>
+                <p>+1 234 567 8901</p>
+              </div>
+              <div class="clearfix"> </div>
             </div>
-            <div class="sub-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-3">
-                              <p>Developed by: Machupicchu Golden 2019 </p>
-                        </div>
-                        <div class="col-sm-4" style="text-align: center;" id="redesSocialesFooter">
-                             
-                                    
-                            <a href="https://es-la.facebook.com/goldenmachupicchu/" target="_blank"> 
-                                <img src="/public/redes/facebook.png" style="width:30px; height:30px;">
-                            </a>
-                            <a href="https://www.instagram.com/machupicchu_golden/?hl=es-la" target="_blank"> 
-                                 <img src="/public/redes/istagran.png" style="width:30px; height:30px;">
-                            </a>
-                            <a href="https://twitter.com/machupicchug?lang=es" target="_blank"> 
-                                <img src="/public/redes/twiter.png" style="width:30px; height:30px;">
-                            </a>
-                            <a href="https://www.youtube.com/channel/UCcMt6opWHKI9CWNPe97pHLA" target="_blank"> 
-                              <img src="/public/redes/youtube.png" style="width:30px; height:30px;">                 
-                            </a>  
-                        </div>
-                        <div class="col-sm-5">
-                            <div class="footer-menu">
-                                <ul>
-                                    <li><a href="/es">Inicio</a></li>
-                                    <li><a href="{{ route('nosotrosEs','es') }}">Nosotros</a></li>
-                                    <li><a href="{{route('testimonioEs','es')}}">Testimonios</a></li>
-                                    <li><a href="{{ route('contactoEs','es') }}">Contacto</a></li>
-                                </ul>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
+            <div class="w3-address-grid">
+              <div class="w3-address-left">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </div>
+              <div class="w3-address-right">
+                <h6>Email Address</h6>
+                <p>Email :<a href="mailto:example@email.com"> mail@example.com</a></p>
+              </div>
+              <div class="clearfix"> </div>
             </div>
-        </footer>
+            <div class="w3-address-grid">
+              <div class="w3-address-left">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+              </div>
+              <div class="w3-address-right">
+                <h6>Location</h6>
+                <p>Broome St, NY 10002,California, USA. 
+                
+                </p>
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 sign-gd flickr-post">
+          <h4>Flickr <span>Posts</span></h4>
+          <ul>
+            <li><a href="single.html"><img src="/elit/images/t1.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="/elit/images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="/elit/images/t3.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="/elit/images/t4.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="/elit/images/t1.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="/elit/images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="/elit/images/t3.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="/elit/images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="/elit/images/t4.jpg" alt=" " class="img-responsive" /></a></li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+      <div class="agile_newsletter_footer">
+          <div class="col-sm-6 newsleft">
+        <h3>SIGN UP FOR NEWSLETTER !</h3>
+      </div>
+      <div class="col-sm-6 newsright">
+        <form action="#" method="post">
+          <input type="email" placeholder="Enter your email..." name="email" required="">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+
+    <div class="clearfix"></div>
+  </div>
+    <p class="copy-right">&copy 2017 Elite shoppy. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+  </div>
+</div>
+<!-- //footer -->
+
+<!-- login -->
+      <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content modal-info">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>            
+            </div>
+            <div class="modal-body modal-spa">
+              <div class="login-grids">
+                <div class="login">
+                  <div class="login-bottom">
+                    <h3>Sign up for free</h3>
+                    <form>
+                      <div class="sign-up">
+                        <h4>Email :</h4>
+                        <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required=""> 
+                      </div>
+                      <div class="sign-up">
+                        <h4>Password :</h4>
+                        <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+                        
+                      </div>
+                      <div class="sign-up">
+                        <h4>Re-type Password :</h4>
+                        <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+                        
+                      </div>
+                      <div class="sign-up">
+                        <input type="submit" value="REGISTER NOW" >
+                      </div>
+                      
+                    </form>
+                  </div>
+                  <div class="login-right">
+                    <h3>Sign in with your account</h3>
+                    <form>
+                      <div class="sign-in">
+                        <h4>Email :</h4>
+                        <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required=""> 
+                      </div>
+                      <div class="sign-in">
+                        <h4>Password :</h4>
+                        <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+                        <a href="#">Forgot password?</a>
+                      </div>
+                      <div class="single-bottom">
+                        <input type="checkbox"  id="brand" value="">
+                        <label for="brand"><span></span>Remember Me.</label>
+                      </div>
+                      <div class="sign-in">
+                        <input type="submit" value="SIGNIN" >
+                      </div>
+                    </form>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+                <p>By logging in you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- //login -->
+<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 
 
-    	<!--========= scrip footer ===========-->
-    	@include('assets.pagina.partials.footer')
-    	<!--========= fin  ===========-->
+  <!-- Custom-JavaScript-File-Links --> 
+  <!-- cart-js -->
 
-    @yield('script')
+  {!!Html::script('elit/js/minicart.min.js')!!}
+  {!!Html::script('elit/js/jquery-2.1.4.min.js')!!}
+  {!!Html::script('elit/js/modernizr.custom.js')!!}
+  {!!Html::script('elit/js/modernizr.custom.js')!!}
+<script>
+  // Mini Cart
+  paypal.minicart.render({
+    action: '#'
+  });
 
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.3"></script>
-   <script type="text/javascript">
-        $(document).ready(function(){
-           
-           if (screen.width<1200) 
-           {
-               
-               $("#redesSociales").hide();
-           }else
-           {
-             $("#redesSociales").show(); 
-             $("#redesSocialesFooter").hide();
-           }
-          
-         
-        });
-    </script>
+  if (~window.location.search.indexOf('reset=true')) {
+    paypal.minicart.reset();
+  }
+</script>
+
+  <!-- //cart-js --> 
+<!-- script for responsive tabs -->           
+
+{!!Html::script('elit/js/easy-responsive-tabs.js')!!}
+<script>
+  $(document).ready(function () {
+  $('#horizontalTab').easyResponsiveTabs({
+  type: 'default', //Types: default, vertical, accordion           
+  width: 'auto', //auto or any width like 600px
+  fit: true,   // 100% fit in a container
+  closed: 'accordion', // Start closed if in accordion view
+  activate: function(event) { // Callback function if tab is switched
+  var $tab = $(this);
+  var $info = $('#tabInfo');
+  var $name = $('span', $info);
+  $name.text($tab.text());
+  $info.show();
+  }
+  });
+  $('#verticalTab').easyResponsiveTabs({
+  type: 'vertical',
+  width: 'auto',
+  fit: true
+  });
+  });
+</script>
+<!-- //script for responsive tabs -->   
+<!-- stats -->
+
+  {!!Html::script('elit/js/jquery.waypoints.min.js')!!}
+  {!!Html::script('elit/js/jquery.waypoints.min.js')!!}
+  <script>
+    $('.counter').countUp();
+  </script>
+<!-- //stats -->
+<!-- start-smoth-scrolling -->
+
+{!!Html::script('elit/js/move-top.js')!!}
+{!!Html::script('elit/js/jquery.easing.min.js')!!}
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $(".scroll").click(function(event){   
+      event.preventDefault();
+      $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+    });
+  });
+</script>
+<!-- here stars scrolling icon -->
+  <script type="text/javascript">
+    $(document).ready(function() {
+      /*
+        var defaults = {
+        containerID: 'toTop', // fading element id
+        containerHoverID: 'toTopHover', // fading element hover id
+        scrollSpeed: 1200,
+        easingType: 'linear' 
+        };
+      */
+                
+      $().UItoTop({ easingType: 'easeOutQuart' });
+                
+      });
+  </script>
+<!-- //here ends scrolling icon -->
+
+
+<!-- for bootstrap working -->
+
+   {!!Html::script('elit/js/bootstrap.js')!!}
+</body>
 </html>

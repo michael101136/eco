@@ -2,1097 +2,1643 @@
 
 @section('content')
 
-<?php 
-    function toursRecomendadosUnDiaIz($tour)
-    {   
 
-            $tourRe=''; 
-            $varNumero=1;
-                       
-              foreach($tour as $item)
-              {
-
-                   if($varNumero<4)
-                   { 
-                        $tourRe.= '<div class="hotel-item">'.
-                                        '<div class="hotel-image">'.
-                                            '<a href="es/tours/detalle/'.$item->slug.'">'.
-                                                '<div class="img"><img src="'.$item->img.'"  alt="" class="img-responsive"></div>'.
-                                           ' </a>'.
-                                        '</div>'.
-                                        '<div class="hotel-body">'.
-                                            '<div class="ratting">'.
-                                                '<i class="fa fa-star"></i>'.
-                                                '<i class="fa fa-star"></i>'.
-                                                '<i class="fa fa-star"></i>'.
-                                                '<i class="fa fa-star-half-o"></i>'.
-                                                '<i class="fa fa-star-o"></i>'.
-                                            '</div>'.
-                                           ' <h3>'.$item->name.'</h3>'.
-                                            //  '<p style="text-align: justify;">'.substr($item->description_short, 0,58).'</p>'.
-                                            '<div class="free-service">'.
-                                                '<i class="flaticon-television" data-toggle="tooltip" data-placement="top" title="" data-original-title="Plasma TV with cable chanels"></i>'.
-                                                '<i class="flaticon-swimmer" data-toggle="tooltip" data-placement="top" title="" data-original-title="Swimming pool"></i>'.
-                                                '<i class="flaticon-wifi" data-toggle="tooltip" data-placement="top" title="" data-original-title="Free wifi"></i>'.
-                                                '<i class="flaticon-weightlifting" data-toggle="tooltip" data-placement="top" title="" data-original-title="Fitness center"></i>'.
-                                                '<i class="flaticon-lemonade" data-toggle="tooltip" data-placement="top" title="" data-original-title="Restaurant"></i>'.
-                                            '</div>'.
-                                        '</div>'.
-                                          '<div class="hotel-right">'.
-                                            '<div class="hotel-person">DESDE <span class="color-blue">$ '.$item->price.'</span> </div>'.
-                                            '<a class="thm-btn" href="es/tours/detalle/'.$item->slug.'">DETALLES</a>'.
-                                        '</div>'.
-                                    '</div>';
-                             $varNumero ++;   
-                        }else
-                        {
-                           break;    
-                        }
-
-
-                }
-
-            return $tourRe;
-                               
-    } 
-
-   function toursRecomendadosUnDiaDe($tour)
-   {
-
-
-            $tourRe=''; 
-            $varNumero=1;
-                       
-              foreach($tour as $item)
-              {
-
-                   if($varNumero>3)
-                   { 
-                        $tourRe.= '<div class="hotel-item">'.
-                                        '<div class="hotel-image">'.
-                                           '<a href="es/tours/detalle/'.$item->slug.'">'.
-                                                '<div class="img"><img src="'.$item->img.'"  alt="" class="img-responsive"></div>'.
-                                           ' </a>'.
-                                        '</div>'.
-                                        '<div class="hotel-body">'.
-                                            '<div class="ratting">'.
-                                                '<i class="fa fa-star"></i>'.
-                                                '<i class="fa fa-star"></i>'.
-                                                '<i class="fa fa-star"></i>'.
-                                                '<i class="fa fa-star-half-o"></i>'.
-                                                '<i class="fa fa-star-o"></i>'.
-                                            '</div>'.
-                                           ' <h3>'.$item->name.'</h3>'.
-                                            // '<p style="text-align: justify;">'.substr($item->description_short, 0,58).'</p>'.
-                                            '<div class="free-service">'.
-                                                '<i class="flaticon-television" data-toggle="tooltip" data-placement="top" title="" data-original-title="Plasma TV with cable chanels"></i>'.
-                                                '<i class="flaticon-swimmer" data-toggle="tooltip" data-placement="top" title="" data-original-title="Swimming pool"></i>'.
-                                                '<i class="flaticon-wifi" data-toggle="tooltip" data-placement="top" title="" data-original-title="Free wifi"></i>'.
-                                                '<i class="flaticon-weightlifting" data-toggle="tooltip" data-placement="top" title="" data-original-title="Fitness center"></i>'.
-                                                '<i class="flaticon-lemonade" data-toggle="tooltip" data-placement="top" title="" data-original-title="Restaurant"></i>'.
-                                            '</div>'.
-                                        '</div>'.
-                                        '<div class="hotel-right">'.
-                                            '<div class="hotel-person">DESDE <span class="color-blue">$ '.$item->price.'</span> </div>'.
-                                           '<a class="thm-btn" href="es/tours/detalle/'.$item->slug.'">DETALLES</a>'.
-                                        '</div>'.
-                                    '</div>';
-                             
-                        }
-                         $varNumero ++;  
-
-
-                }
-
-            return $tourRe;
-
-   }
-    function sliderTexto($testimonio)
-    {
-          $htmlTemp='';
-          $i=0;
-          $tempNumero=0;
-          
-          foreach($testimonio as $item)
-          {
-              if($item->id > $tempNumero)
-              {
-                 $tempNumero= $item->id;
-              }
-          } 
-          
-          foreach($testimonio as $item)
-          {
-                if($item->id == $tempNumero )
-                {
-                    $htmlTemp.='<div class="item col-sm-10 col-sm-offset-1 active ">'.
-                                ' <blockquote>'.$item->testimonial.''.
-                                         ' <span class="author">'.$item->name.''.
-                                         ' </span>'.
-                                ' </blockquote>'.
-                             '</div>';
-                }else
-                {
-                    $htmlTemp.='<div class="item col-sm-10 col-sm-offset-1 ">'.
-                                ' <blockquote>'.$item->testimonial.''.
-                                     ' <span class="author">'.$item->name.''.
-                                     ' </span>'.
-                                ' </blockquote>'.
-                             '</div>';
-                }
-                  
-                
-                 
-          }
-          return $htmlTemp;
-        
-    } 
-    
-    function sliderFotos($testimonioFotos)
-    {
-        $tempNumero=0;
-           $htmlTemp='';
-           $i=0;
-          foreach($testimonioFotos as $item)
-          {
-              if($item->id > $tempNumero)
-              {
-                 $tempNumero= $item->id;
-              }
-          } 
-          
-           foreach($testimonioFotos as $item)
-          {
-                if($item->id == $tempNumero )
-                {
-                    $htmlTemp.='<li data-target="#quote-carousel" data-slide-to="'.$i.'" class="active">'.
-                                ' <img class="img-responsive "  src="/admin/testimonio/'.$item->id.'.'.$item->photo.'" alt="">'.
-                             '</li>';
-                   
-                     
-                }else
-                {
-                     $htmlTemp.='<li data-target="#quote-carousel" data-slide-to="'.$i.'" class="">'.
-                                ' <img class="img-responsive " src="/admin/testimonio/'.$item->id.'.'.$item->photo.'" alt="">'.
-                             '</li>';
-                }
-                  
-                 $i=$i+1;
-                 
-          }
-          return $htmlTemp;
-          
-    }
-    
-    
-
-?>
-<style type="text/css">
-	.my-fixed-item {
-   position: fixed;
-   margin-top: 250px;
-    min-height: 40px;
-    width: 167px;
-    text-align: center;
-    word-wrap: break-word;
-    z-index: 1000;
-    background-color: aquamarine;
-    
-    font-family: sans-serif; 
-font-size: 18px; 
-font-weight: 400; 
-color: #ffffff; 
-background:#ef0808;
-border-radius: 35px 0px 35px 0px;
--moz-border-radius: 35px 0px 35px 0px;
--webkit-border-radius: 0px 0px 35px 0px;
-border: 2px solid #fafcff;
-
-}
- #mdialTamanio
-    {
-      width: 80% !important;
-    }
-    
-    @keyframes slidy {
-    0% {margin-left: 0;}
-	20% {margin-left: 0;}
-	
-	25% {margin-left: -100%;}
-	45% {margin-left: -100%;}
-	
-	50% {margin-left: -200%;}
-	70% {margin-left: -200%;}
-	
-	75% {margin-left: -300%;}
-	100% {margin-left: -300%;}
-}
-
-body { margin: 0; } 
-div#slider { overflow: hidden; }
-div#slider figure img { width: 20%; float: left; }
-div#slider figure { 
-  position: relative;
-  width: 500%;
-  margin: 0;
-  left: 0;
-  text-align: left;
-  font-size: 0;
-
-  animation: 30s slidy infinite alternate linear; 
-}
-@media screen and (max-width:640px) {
- #divslider{
-         margin-top: 51px !important;
-  }
-}
-@media screen and (min-width:1024px) {
-  #divBuscador{
-      margin-top: 122px;
-  }
-   #divslider{
-          margin-top: 70px! important;
-          max-width:1500px;
-  }
-}
-
-@media screen and (max-width: 1200px) , screen and (max-height: 1399px) {
-
- #divslider{
-          margin-top: 80px! important;
-          max-width:1898px;
-          max-height:1898px;
-  }
-}
-
-
-</style>
-
-
-<div class="my-fixed-item">
-     
-    <h5><span class="glyphicon glyphicon-shopping-cart" ></span> <a data-toggle="modal"  data-target="#elIDdelModal" style="color: white;cursor:pointer;">GUÍA DE COMPRA</a> </h5>
-                               
-</div>
-
-    <!--<div class="slider-wrapper">-->
-    <!--                <div class="responisve-container">-->
-    <!--                    <div class="slider">-->
-    <!--                        <div class="fs_loader"></div>-->
-    <!--                        <div class="slide">-->
-    <!--                            <img src="http://k31.kn3.net/A/C/6/F/D/3/3FB.jpg">-->
-    <!--                            <p class="uc" data-position="150,360" data-in="top" data-step="1" data-out="top" data-ease-in="easeOutBounce">Bienvenido a</p>-->
-    <!--                            <p class="slider-titele" data-position="210,200" data-in="left"  data-step="2" data-delay="100">MACHUPICCHU GOLDEN</p>-->
-                                
-    <!--                            <a href="{{ route('nosotrosEs','es') }}" class="thm-btn" data-position="370,435" data-in="bottom" data-out="right" data-step="2" data-delay="1500">Lee más</a>-->
-    <!--                        </div>-->
-    <!--                        <div class="slide">-->
-    <!--                            <img src="https://images6.alphacoders.com/299/thumb-1920-299834.jpg">-->
-    <!--                            <p class="uc" data-position="150,360" data-in="top" data-step="1" data-out="top">LUGARES </p>-->
-    <!--                            <p class="slider-titele" data-position="210,200" data-in="bottom"  data-step="2" data-delay="100">MAGICOS ESPERAN POR TI</p>-->
-                                
-    <!--                            <a href="{{ route('nosotrosEs','es') }}" class="thm-btn" data-position="370,435" data-in="bottom" data-out="right" data-step="2" data-delay="1500">Lee más</a>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--            </div>-->
-                
-    <!--<div id="slider">-->
-        
-    <!--    <figure>-->
-    <!--    <a href="https://www.machupicchugolden.com/es/tours/detalle/cusco-super-aventurero-7-dias-y-6-noches-by-car"> <img src="/public/slider/promo.jpg" alt > </a>-->
-    <!--    <img src="/public/slider/img_2.jpg" alt>-->
-    <!--           <a href="https://www.machupicchugolden.com/es/tours/detalle/cusco-super-aventurero-7-dias-y-6-noches-by-car"> <img src="/public/slider/promo.jpg" alt> </a>-->
-
-    <!--    <img src="/public/slider/img_2.jpg" alt>-->
-    <!--    <a href="https://www.machupicchugolden.com/es/tours/detalle/cusco-super-aventurero-7-dias-y-6-noches-by-car"> <img src="/public/slider/promo.jpg" alt> </a>-->
-    <!--    </figure>-->
-    <!--</div>-->
-    
-<div id="divslider" class="w3-content w3-display-container">
-
-    <!--<img class="mySlides w3-animate-fading" src="/public/slider/promo.jpg" style="width:100%">-->
-   
-    <a href="https://www.machupicchugolden.com/es/tours/detalle/cusco-cuatrimotos-a-100-x-horas"> <img class="mySlides w3-animate-fading" src="/public/slider/es.jpg" style="width:100%"></a>
-    <a href="https://www.machupicchugolden.com/es/tours/detalle/paquete-turistico-inti-raymi-2019-cusco-clasico-7dias-y-6-noches-by-car"> <img class="mySlides w3-animate-fading" src="/public/slider/inti.jpg" style="width:100%"></a>
-    <a href="https://www.machupicchugolden.com/es/tours/detalle/cusco-super-aventurero-7-dias-y-6-noches-by-car"> <img class="mySlides w3-animate-fading" src="/public/slider/es1.jpg" style="width:100%"></a>
-    <a href="https://www.machupicchugolden.com/es/tours/detalle/cusco-aventurero-5-dias-y-4-noches-en-tren "> <img class="mySlides w3-animate-fading" src="/public/slider/promoAventurero.jpg" style="width:100%"></a>
-    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-    
-</div>
-
-                <!-- booking -->
-                <div class="container boking-inner">
-                    <div class="row">
-                        <div class="col-sm-12" id="divBuscador" >
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <ul class="nav nav-tabs">
-                                        <!--<li class="active"><a href="#tab1default" data-toggle="tab"><i class="flaticon-paper-plane"></i>TOURS</a></li>-->
-                                       
-
-                                    </ul>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="tab-content">
-                                        <div class="tab-pane fade in active" id="tab1default">
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-9 col-md-10">
-
-                                                        <div class="row panel-margin">
-                                                            <div class="col-xs-6 col-sm-4 col-md-3 panel-padding">
-                                                                <label><strong>PRECIOS</strong></label>
-                                                                <div class="icon-addon">
-                                                                    <!--<input type="text" placeholder="Precio" id="precio"  class="form-control" />-->
-                                                                    <select class="form-control" id="precio">  
-                                                                        <option value="0-1800"> Elija una opcion</option>
-                                                                        <option value="0-200">[0 - 200]</option>
-                                                                        <option value="200-400">[200 - 400]</option>
-                                                                        <option value="400-600">[400 - 600]</option>
-                                                                        <option value="600-800">[600 - 800]</option>
-                                                                        <option value="800-1000">[800 - 1000]</option>
-                                                                        <option value="1000-1200">[1000 -1200]</option>
-                                                                        <option value="1200-1400">[1200 - 1400]</option>
-                                                                        <option value="1400-1600">[1400 - 1600]</option>
-                                                                        <option value="1600-1800">[1600 - 1800]</option>
-
-                                                                     </select>
-                                                                    <!--<label class="glyphicon fa fa-dollar"  title="email"></label>-->
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xs-6 col-sm-8 col-md-4 panel-padding">
-                                                                <label><strong>Ciudad</strong></label>
-                                                                <div class="icon-addon">
-                                                                    <select class="form-control" id="departamento">
-                                                                        <option value="Cusco">Cusco</option>
-                                                                        <option value="Puno">Puno</option>
-                                                                        <option value="Arequipa">Arequipa</option>
-                                                                        <option value="Lima">Lima</option>
-                                                                        <option value="Selva">Selva</option>
-                                                                        <option value="Nazca">Nazca</option>
-                                                                        <option value="Ica">Ica</option>
-                                                                        <option value="Bolivia">Bolivia</option>
-                                                                      </select>
-                                                                    <!--<input type="text" placeholder="Departamento" id="departamento" class="form-control" />-->
-                                                                    <!--<label class="glyphicon fa fa-suitcase"  title="email"></label>-->
-                                                                </div>
-                                                            </div>
-                                                            <!-- <div class="col-xs-6 col-sm-4 col-md-2 panel-padding">-->
-                                                            <!--    <label>Fecha</label>-->
-                                                            <!--    <div class="icon-addon">-->
-                                                            <!--        <input type="text" placeholder="Date"  class="form-control" id="datepicker2"/>-->
-                                                            <!--        <label class="glyphicon fa fa-calendar"  title="email"></label>-->
-                                                            <!--    </div>-->
-                                                            <!--</div>-->
-                                                           
-                                                        </div>
-
-                                                </div>
-
-                                                <div class="col-xs-12 col-sm-3 col-md-2">
-                                                    <button type="button" class="thm-btn" id="filtradosTours">Buscar</button>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                        
-                                        <div class="tab-pane fade" id="tab2default">
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-9 col-md-10">
-                                                <div class="row panel-margin">
-                                                    <div class="col-xs-6 col-sm-4 col-md-2 panel-padding">
-                                                        <label>Arrival</label>
-                                                        <div class="icon-addon">
-                                                            <input type="text" placeholder="Date" class="form-control" id="datepicker3"/>
-                                                            <label class="glyphicon fa fa-calendar"  title="email"></label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-6 col-sm-4 col-md-2 panel-padding">
-                                                        <label>Going</label>
-                                                        <div class="icon-addon">
-                                                            <input type="text" placeholder="Date" class="form-control" id="datepicker4"/>
-                                                            <label class="glyphicon fa fa-calendar"  title="email"></label>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-3 col-md-2">
-                                                <button type="button" class="thm-btn">Search book</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- popular tour -->
-                <section class="popular-inner">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3">
-                                <div class="title">
-                                    <h2>TOURS POPULARES</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row thm-margin">
-                            <div id="popular-slide" class="owl-carousel">
-
-                            @foreach($tourPrincipal as $itemp)
-
-                                <div class="item">
-                                    <div class="grid-item-inner">
-                                        <div class="grid-img-thumb">
-                                            <!-- ribbon -->
-                                            <div class="ribbon"><span>{{ $itemp->categoriesName }}</span></div>
-                                            <a href="{{route('detalleEsTour',['es'=>'es','tour' => $itemp->slug])}}"><img src="/{{ $itemp->img}}" alt="1" style=" height: 220px;"class="img-responsive" /></a>
-                                        </div>
-                                        <div class="grid-content">
-                                            <div class="grid-price text-right">
-                                                 <span><sub>$</sub>{{ $itemp->price}}</span>
-                                            </div>
-                                            <div class="grid-text">
-                                                
-                                                <div class="travel-times">
-                                                    <h4 class="pull-left" style=" text-align: justify;">
-                                                        <div style="
-                                                        background-color: rgba(0,0,0,.5);
-                                                        border-bottom-right-radius: 20px;
-                                                        padding: 6px;font-family: 'Oswald', sans-serif;">{{ $itemp->name}}
-                                                        </div> 
-                                                    </h4>
-                                                    <span class="pull-right">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                             
-                            @endforeach   
-                            </div>
-                        </div>
-                    </div>
-                </section>
-               
-                <section class="destination">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3">
-                                <div class="title">
-                                    <h2>DESTINOS POPULARES</h2>
-                                    <p>Esta es la agencia de viajes increíble!</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row thm-margin">
-                            <div class="col-md-3 col-sm-4 thm-padding">
-                                <div class="destination-grid">
-                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'cusco'])}}"><img src="plantilla/assets/images/destinos/img_01.jpg" class="img-responsive" alt="">
-                                        <div class="mask">
-                                            <h2>CUSCO</h2>
-                                            <p>
-                                                Cusco es una ciudad del sureste del Perú ubicada en la vertiente oriental de la cordillera de los Andes.
-                                            </p>
-                                            <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'cusco'])}}" class="thm-btn">Leer más</a>
-                                        </div>
-                                        <div class="dest-name">
-                                            <h4>CUSCO</h4>
-                                        </div>
-                                        <div class="dest-icon">
-                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 thm-padding">
-                                <div class="destination-grid">
-                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'puno'])}}"><img src="plantilla/assets/images/destinos/img_02.jpg" class="img-responsive" alt="">
-                                        <div class="mask">
-                                            <h2>PUNO</h2>
-                                            <p>Puno es una ciudad del sur de Perú junto al lago Titicaca, uno de los más grandes de toda Sudamérica</p>
-                                            <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'puno'])}}" class="thm-btn">Leer más</a>
-                                        </div>
-                                        <div class="dest-name">
-                                            <h4>PUNO</h4>
-                                        </div>
-                                        <div class="dest-icon">
-                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 thm-padding">
-                                <div class="destination-grid">
-                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'arequipa'])}}"><img src="plantilla/assets/images/destinos/img_03.jpg" class="img-responsive" alt="">
-                                        <div class="mask">
-                                            <h2>AREQUIPA</h2>
-                                            <p>Arequipa es una ciudad peruana ubicada en la provincia y el departamento homónimos </p>
-                                             <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'arequipa'])}}" class="thm-btn">Leer más</a>
-                                        </div>
-                                        <div class="dest-name">
-                                            <h4>AREQUIPA</h4>
-                                        </div>
-                                        <div class="dest-icon">
-                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 thm-padding">
-                                <div class="destination-grid">
-                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'lima'])}}"><img src="plantilla/assets/images/destinos/img_04.jpg" class="img-responsive" alt="">
-                                        <div class="mask">
-                                            <h2>LIMA</h2>
-                                            <p>Lima es la ciudad capital de la República del Perú.​ Se encuentra situada en la costa central del país.</p>
-                                            <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'lima'])}}" class="thm-btn">Read More</a>
-                                        </div>
-                                        <div class="dest-name">
-
-                                            <h4>LIMA</h4>
-                                        </div>
-                                        <div class="dest-icon">
-                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 thm-padding">
-                                <div class="destination-grid">
-                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'selva'])}}"><img src="plantilla/assets/images/destinos/img_05.jpg" class="img-responsive" alt="">
-                                        <div class="mask">
-                                            <h2>SELVA</h2>
-                                            <p>Se llama selva, jungla o bosque lluvioso tropical a los bosques densos con gran diversidad biológica.</p>
-                                            <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'selva'])}}" class="thm-btn">Leer más</a>
-                                        </div>
-                                        <div class="dest-name">
-                                            <h4>SELVA</h4>
-                                        </div>
-                                        <div class="dest-icon">
-                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 thm-padding">
-                                <div class="destination-grid">
-                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'nazca'])}}"><img src="plantilla/assets/images/destinos/img_06.jpg" class="img-responsive" alt="">
-                                        <div class="mask">
-                                            <h2>NAZCA</h2>
-                                            <p>Nazca​ es una ciudad peruana ubicada en la región centro-sur del Perú, capital de la homónima provincia de Nazca.</p>
-                                            <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'nazca'])}}" class="thm-btn">Leer más</a>
-                                        </div>
-                                        <div class="dest-name">
-                                            <h4>NAZCA</h4>
-                                        </div>
-                                        <div class="dest-icon">
-                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 hidden-sm thm-padding">
-                                <div class="destination-grid">
-                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'ica'])}}"><img src="plantilla/assets/images/destinos/img_07.jpg" class="img-responsive" alt="">
-                                        <div class="mask">
-                                            <h2>ICA</h2>
-                                            <p>Capital del Departamento de Ica, situada en el estrecho valle que forma el río Ica.</p>
-                                            <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'ica'])}}" class="thm-btn">Leer más</a>
-                                        </div>
-                                        <div class="dest-name">
-                                            <h4>ICA</h4>
-                                        </div>
-                                        <div class="dest-icon">
-                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 hidden-sm thm-padding">
-                                <div class="destination-grid">
-                                    <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'bolivia'])}}"><img src="plantilla/assets/images/destinos/img_08.jpg" class="img-responsive" alt="">
-                                        <div class="mask">
-                                            <h2>BOLIVIA</h2>
-                                            <p> Es un país soberano situado en la región centro-occidental de América del Sur, </p>
-                                            <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'bolivia'])}}" class="thm-btn">Leer más</a>
-                                        </div>
-                                        <div class="dest-name">
-                                            <h4>BOLIVIA</h4>
-                                        </div>
-                                        <div class="dest-icon">
-                                            <i class="flaticon-earth-globe" data-toggle="tooltip" data-placement="top" title="15 Tours"></i>
-                                            <i class="flaticon-ship" data-toggle="tooltip" data-placement="top" title="9 Criuses"></i>
-                                            <i class="flaticon-transport" data-toggle="tooltip" data-placement="top" title="31 Flights"></i>
-                                            <i class="flaticon-front" data-toggle="tooltip" data-placement="top" title="83 Hotels"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- hotel -->
-                <section class="hotel-inner">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3">
-                                <div class="title">
-                                    <h2>TOURS RECOMENDADOS</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6">
-                            
-                               <?=toursRecomendadosUnDiaIz($toursRecomendadosTren);?>  
-
-                            </div>
-                             <div class="col-sm-12 col-md-6">
-                            
-                               <?=toursRecomendadosUnDiaDe($toursRecomendadosCarro);?>  
-                               
-                            </div>
-
-                    </div>
-                </section>
-                <!-- Testimonial section -->
-                <!--<div class="reference home-ref">-->
-                <!--    <div class="container">-->
-                <!--        <div class="row">-->
-                <!--            <div class="col-md-6 col-md-offset-3">-->
-                <!--                <div class="title">-->
-                <!--                    <h2>NOSOTROS</h2>-->
-                <!--                    <p>MACHUPICCHU GOLDEN </p>-->
-                <!--                </div>-->
-                <!--            </div>-->
-                <!--        </div>-->
-                <!--        <div class="row">-->
-                <!--            <div class="testimonials">-->
-                <!--                <div class="carousel" data-ride="carousel" id="quote-carousel">-->
-                <!--                    <div class="carousel-inner">-->
-                                        <!-- Quote 1 -->  
-                <!--                        <div class="item col-sm-10 col-sm-offset-1">-->
-                <!--                            <blockquote>-->
-                <!--                            Somos una Agencia de Viajes con personal altamente calificado y con el primordial-->
-                <!--                            objetivo de brindarle un servicio personalizado y un asesoramiento objetivo-->
-                <!--                            durante todas las etapas de planificación de su viaje desde el momento que-->
-                <!--                            realice el primer contacto con nosotros.-->
-                <!--                                <span class="author">- Macchupichu Golden</span>-->
-                <!--                            </blockquote>-->
-                <!--                        </div>-->
-                                        <!-- Quote 2 -->  
-                <!--                        <div class="item col-sm-10 col-sm-offset-1">-->
-                <!--                            <blockquote>-->
-                <!--                            Contamos con personal con más de 15 años de experiencia en el sector turismo que está -->
-                <!--                            en condiciones de brindarle un servicio diferenciado de óptima calidad.-->
-                <!--                                <span class="author">- Macchupichu Golden</span>-->
-                <!--                            </blockquote>-->
-                <!--                        </div>-->
-                                        <!-- Quote 3 -->
-                <!--                        <div class="item col-sm-10 col-sm-offset-1 active">-->
-                <!--                            <blockquote>-->
-                <!--                            Nuestro compromiso es brindarle nuestro mejor esfuerzo durante-->
-                <!--                            todo su viaje para lo cual nos encargaremos de realizar un seguimiento rápido y-->
-                <!--                            eficiente durante su estadía que convierta sus expectativas en realidad y que-->
-                <!--                            perduren como un recuerdo inolvidable.-->
-                <!--                                <span class="author">- Macchupichu Golden</span>-->
-                <!--                            </blockquote>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                                    <!-- Bottom Carousel Indicators -->
-                <!--                    <ol class="carousel-indicators">-->
-                <!--                        <li data-target="#quote-carousel" data-slide-to="0" class=""><img class="img-responsive " src="plantilla/assets/images/avtar-1.jpg" alt=""></li>-->
-                <!--                        <li data-target="#quote-carousel" data-slide-to="1" class=""><img class="img-responsive" src="plantilla/assets/images/avtar-2.jpg" alt=""></li>-->
-                <!--                        <li data-target="#quote-carousel" data-slide-to="2" class="active"><img class="img-responsive" src="plantilla/assets/images/avtar-3.jpg" alt=""></li>-->
-                <!--                    </ol>-->
-                <!--                </div>-->
-                <!--            </div>-->
-                <!--        </div>-->
-                <!--    </div>-->
-                <!--</div>-->
-                
-                <!-- package section -->
-                <section class="package">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3">
-                                <div class="title">
-                                    <h2>PAQUETES PARA UNA SOLA PERSONA</h2>
-                                    <p>Disfruta con nosotros de nuestros paquetes turísticos.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            @foreach($toursUnaPersona as $item)
-                            <div class="col-sm-4 col-md-3">
-                                <div class="team_member">
-                                    <div class="img-zoom-in">
-                                        <a href="{{route('detalleEsTour',['es'=>'es','tour' => $item->slug])}}"> <img src="/{{ $item->img}}" alt="" class="img-responsive"></a>
-                                    </div>
-                                    <div class="team_text">
-                                        <div class="team_text_inner">
-                                            <a href="{{route('detalleEsTour',['es'=>'es','tour' => $item->slug])}}">
-                                                <h5 style="font-family: 'Oswald', sans-serif;">{{ $item->name}}</h5>
-                                                <p>Desde  $ {{ $item->price}}</p>
-                                            </a>
-                                        </div>
-                            
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            @endforeach
-                           <a style="float: right;" class="thm-btn" href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'para_una_persona'])}}" >Ver más</a>
-                        </div>
-                    </div>
-                </section>
-                 <section class="counter-inner">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <div class="count-content">
-                                    <div class="count-icon">
-                                        <i class="flaticon-earth-globe"></i>
-                                    </div>
-                                    <div class="count">
-                                        <h1 class="count-number">348</h1>
-                                        <div class="count-text">Destinations</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="count-content">
-                                    <div class="count-icon">
-                                        <i class="flaticon-cabin"></i>
-                                    </div>
-                                    <div class="count">
-                                        <h1 class="count-number">89</h1>
-                                        <div class="count-text">Hotels</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="count-content">
-                                    <div class="count-icon">
-                                        <i class="flaticon-photographer-with-cap-and-glasses"></i>
-                                    </div>
-                                    <div class="count">
-                                        <h1 class="count-number">987</h1>
-                                        <div class="count-text">Tourists</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="count-content">
-                                    <div class="count-icon">
-                                        <i class="flaticon-airplane-flight-in-circle-around-earth"></i>
-                                    </div>
-                                    <div class="count">
-                                        <h1 class="count-number">891</h1>
-                                        <div class="count-text">Tour</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                  <div class="team-inner">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-offset-2 col-md-8">
-                                <div class="section-title text-center">
-                                    <!--<i class="flaticon-people"></i>-->
-                                    <img src="/can.png"  style="height: 60px;width: 112px;">
-                                    <h2>PAQUETES  COMUNIDAD ANDINA (CAN )</h2>
-                                   
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            
-                            @foreach($toursCan as $item)
-                            <div class="col-sm-4 col-md-3">
-                                <div class="team_member">
-                                    <div class="img-zoom-in">
-                                        <a href="{{route('detalleEsTour',['es'=>'es','tour' => $item->slug,'can'=>'can'])}}"> <img src="/{{ $item->img}}" alt="" class="img-responsive"></a>
-                                    </div>
-                                    <div class="team_text">
-                                        <a href="{{route('detalleEsTour',['es'=>'es','tour' => $item->slug,'can'=>'can'])}}"> 
-                                            <div class="team_text_inner">
-                                                <h5 style="font-family: 'Oswald', sans-serif;">{{ $item->name}}</h5>
-                                                <p>Desde  $ {{ $item->price_can}}</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            @endforeach
-                            <!--<a class="thm-btn" href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'can'])}}" >Ver más</a>-->
-                          
-                        </div>
-                    </div>
-                </div>
-                
-               
-                <!-- Counter -->
-               
-                
-                
-                
-                <!-- blog section -->
-                <!--<section class="blog-inner" id="testimonios">-->
-                <!--    <div class="container">-->
-                <!--        <div class="row">-->
-                <!--            <div class="col-md-6 col-md-offset-3">-->
-                <!--                <div class="title">-->
-                <!--                    <h2>TESTIMONIOS </h2>-->
-                <!--                    <p>COMPARTE CON NOSOTROS TU EXPERIENCIAS DE VIAJE</p>-->
-                <!--                </div>-->
-                <!--            </div>-->
-                <!--        </div>-->
-                <!--        <div class="row thm-margin">-->
-                <!--            <div id="blog-slide" class="owl-carousel">-->
-                                <!-- blog post item -->
-                <!--                @foreach($testimonio as $item)-->
-                <!--                <div class="item">-->
-                <!--                    <div class="blog-content">-->
-                <!--                        <div class="blog-img image-hover">-->
-                <!--                            <a href="{{route('testimonioEs','es')}}"><img style="height: 190px;" src="/admin/testimonio/{{$item->id}}.{{$item->photo}}"  class="img-responsive img-rounded" alt=""></a>-->
-                <!--                            <span class="post-date">{{$item->date}}</span>-->
-                <!--                        </div>-->
-                <!--                        <h4><a href="#">{{$item->name}}</a></h4>-->
-                                      
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                @endforeach-->
-                                <!-- blog post item -->
-                            
-                <!--            </div>-->
-
-                               
-                        
-                <!--        </div>-->
-                        
-
-                <!--            <a class="thm-btn" href="#" data-toggle="modal" data-target="#myModal">INGRESE</a>-->
-                <!--    </div>-->
-                   
-
-                <!--</section>-->
-                <!-- Newsletter -->
-                <!-- <section class="get-offer">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <span>Subscribe to our Newsletter</span>
-                                <h2>& Discover the best offers!</h2>
-                            </div>
-                            <div class="col-sm-7">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter Your Email" name="q">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-default" type="submit"><i class="flaticon-paper-plane"></i> Subscribe</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </section> -->
-                
-                
-                
-                   <div class="reference home-ref">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3">
-                                <div class="title">
-                                    <h2>TESTIMONIOS</h2>
-                                    <p>COMPARTE CON NOSOTROS TU EXPERIENCIAS DE VIAJE </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="testimonials">
-                                <div class="carousel" data-ride="carousel" id="quote-carousel">
-                                    <div class="carousel-inner">
-                                        <!-- Quote 1 -->  
-                                       
-                                      
-                                        <?=sliderTexto($testimonio);?> 
-                                        
-                                        <!-- @foreach($testimonio as $item)-->
-                                        <!--        <div class="item col-sm-10 col-sm-offset-1 ">-->
-                                        <!--            <blockquote>-->
-                                        <!--              {{$item->name}}-->
-                                        <!--                <span class="author"> 1 autor</span>-->
-                                        <!--            </blockquote>-->
-                                        <!--        </div>-->
-                                        <!--@endforeach-->
-                                       
-                                    </div>
-                                    <!-- Bottom Carousel Indicators -->
-                                     <ol class="carousel-indicators">
-                                         <?=sliderFotos($testimonio);?> 
-                                    </ol>
-                                   
-                                </div>
-                            </div>
-                            
-                           
-                            
-                        </div>
-                          
-                          <a class="thm-btn" href="#" data-toggle="modal" data-target="#myModal">INGRESE</a>
-                    </div>
-                    
-                </div><br><br><br>
-                
-                
-                
-            </div>
-
-
-
-          <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-            
- 
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title" style="text-align: center;">EXPERIENCIA DE VIAJES</h4>
-                </div>
-                <div class="modal-body">
-                
-                    <div class="container">
-                        <div class="row">
-                         
-                            <div class="col-sm-6">
-                                <div class="contact-form">
-
-                                   {!! Form::open(['route' => ['create.ingresarTestimonio'] , 'method' => 'POST','enctype' => 'multipart/form-data']) !!}
-
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Nombre</label>
-                                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name')}}" placeholder="Nombre">
-                                                    <p style="color:red;">{{ $errors->first('name') }}</p>
-                                                </div>
-                                            </div>
-                                           
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Email</label>
-                                                    <input type="text" class="form-control" id="email" name="email" value="{{ old('email')}}" placeholder="Email">
-                                                    <p style="color:red;">{{ $errors->first('email') }}</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Nacionalidad</label>
-                                                    <input type="text" class="form-control" id="nationality" name="nationality" value="{{ old('nationality')}}" placeholder="Nacionalidad">
-                                                    <p style="color:red;">{{ $errors->first('nationality') }}</p>
-                                                    <input type="hidden" class="form-control" id="language" name="language" value="es">
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="form-group">
-                                            <label></label>
-                                            <textarea class="form-control" id="message" name="message" value="{{ old('message')}}" placeholder="Comentario" rows="5"></textarea>
-                                            <p style="color:red;">{{ $errors->first('message') }}</p>
-
-                                        </div>
-                                         <div class="form-group">
-                                              <label></label>
-                                               <input type="file" class="form-control" name="img" >
-                                              <p style="color:red;">{{ $errors->first('img') }}</p>
-
-                                        </div>
-                                         <div class="col-sm-2">
-                                               
-                                        </div>
-                                       
-                                                
-                                        <div class="col-sm-4">
-                                               
-                                        </div>
-
-                                        <div class="col-sm-6"><br>
-                                                <div class="form-group">
-                                                    <button type="submit" class="thm-btn">Guardar</button>
-                                                </div>
-                                        </div>
-                                        
-                                {!! Form::close() !!}
-
-                                </div>
-                            </div>
-                            
-                        </div>
-                        
-                    </div>
-         
-                </div>
-                
+<!-- Modal1 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+            <div class="modal-body modal-body-sub_agile">
+            <div class="col-md-8 modal_body_left modal_body_left1">
+            <h3 class="agileinfo_sign">Sign In <span>Now</span></h3>
+                  <form action="#" method="post">
+              <div class="styled-input agile-styled-input-top">
+                <input type="text" name="Name" required="">
+                <label>Name</label>
+                <span></span>
               </div>
+              <div class="styled-input">
+                <input type="email" name="Email" required=""> 
+                <label>Email</label>
+                <span></span>
+              </div> 
+              <input type="submit" value="Sign In">
+            </form>
+              <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
+                              <li><a href="#" class="facebook">
+                                  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+                              <li><a href="#" class="twitter"> 
+                                  <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+                              <li><a href="#" class="instagram">
+                                  <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+                              <li><a href="#" class="pinterest">
+                                  <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                            <p><a href="#" data-toggle="modal" data-target="#myModal2" > Don't have an account?</a></p>
+
+            </div>
+            <div class="col-md-4 modal_body_right modal_body_right1">
+              <img src="/elit/images/log_pic.jpg" alt=" "/>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <!-- //Modal content-->
+      </div>
+    </div>
+<!-- //Modal1 -->
+<!-- Modal2 -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+            <div class="modal-body modal-body-sub_agile">
+            <div class="col-md-8 modal_body_left modal_body_left1">
+            <h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
+             <form action="#" method="post">
+              <div class="styled-input agile-styled-input-top">
+                <input type="text" name="Name" required="">
+                <label>Name</label>
+                <span></span>
+              </div>
+              <div class="styled-input">
+                <input type="email" name="Email" required=""> 
+                <label>Email</label>
+                <span></span>
+              </div> 
+              <div class="styled-input">
+                <input type="password" name="password" required=""> 
+                <label>Password</label>
+                <span></span>
+              </div> 
+              <div class="styled-input">
+                <input type="password" name="Confirm Password" required=""> 
+                <label>Confirm Password</label>
+                <span></span>
+              </div> 
+              <input type="submit" value="Sign Up">
+            </form>
+              <ul class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
+                              <li><a href="#" class="facebook">
+                                  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+                              <li><a href="#" class="twitter"> 
+                                  <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+                              <li><a href="#" class="instagram">
+                                  <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+                              <li><a href="#" class="pinterest">
+                                  <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                            <p><a href="#">By clicking register, I agree to your terms</a></p>
+
+            </div>
+            <div class="col-md-4 modal_body_right modal_body_right1">
+              <img src="/elit/images/log_pic.jpg" alt=" "/>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <!-- //Modal content-->
+      </div>
+    </div>
+<!-- //Modal2 -->
+
+<!-- banner -->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+      <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+      <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+      <li data-target="#myCarousel" data-slide-to="4" class=""></li> 
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="item active"> 
+        <div class="container">
+          <div class="carousel-caption">
+            <h3>The Biggest <span>Sale</span></h3>
+            <p>Special for today</p>
+            <a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+          </div>
+        </div>
+      </div>
+      <div class="item item2"> 
+        <div class="container">
+          <div class="carousel-caption">
+            <h3>Summer <span>Collection</span></h3>
+            <p>New Arrivals On Sale</p>
+            <a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+          </div>
+        </div>
+      </div>
+      <div class="item item3"> 
+        <div class="container">
+          <div class="carousel-caption">
+            <h3>The Biggest <span>Sale</span></h3>
+            <p>Special for today</p>
+            <a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+          </div>
+        </div>
+      </div>
+      <div class="item item4"> 
+        <div class="container">
+          <div class="carousel-caption">
+            <h3>Summer <span>Collection</span></h3>
+            <p>New Arrivals On Sale</p>
+            <a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+          </div>
+        </div>
+      </div>
+      <div class="item item5"> 
+        <div class="container">
+          <div class="carousel-caption">
+            <h3>The Biggest <span>Sale</span></h3>
+            <p>Special for today</p>
+            <a class="hvr-outline-out button2" href="mens.html">Shop Now </a>
+          </div>
+        </div>
+      </div> 
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <!-- The Modal -->
+    </div> 
+  <!-- //banner -->
+    <div class="banner_bottom_agile_info">
+      <div class="container">
+            <div class="banner_bottom_agile_info_inner_w3ls">
+                 <div class="col-md-6 wthree_banner_bottom_grid_three_left1 grid">
+            <figure class="effect-roxy">
+              <img src="/elit/images/bottom1.jpg" alt=" " class="img-responsive" />
+              <figcaption>
+                <h3><span>F</span>all Ahead</h3>
+                <p>New Arrivals</p>
+              </figcaption>     
+            </figure>
+          </div>
+           <div class="col-md-6 wthree_banner_bottom_grid_three_left1 grid">
+            <figure class="effect-roxy">
+              <img src="/elit/images/bottom2.jpg" alt=" " class="img-responsive" />
+              <figcaption>
+                <h3><span>F</span>all Ahead</h3>
+                <p>New Arrivals</p>
+              </figcaption>     
+            </figure>
+          </div>
+          <div class="clearfix"></div>
+        </div> 
+     </div> 
+    </div>
+  <!-- schedule-bottom -->
+  <div class="schedule-bottom">
+    <div class="col-md-6 agileinfo_schedule_bottom_left">
+      <img src="/elit/images/mid.jpg" alt=" " class="img-responsive" />
+    </div>
+    <div class="col-md-6 agileits_schedule_bottom_right">
+      <div class="w3ls_schedule_bottom_right_grid">
+        <h3>Save up to <span>50%</span> in this week</h3>
+        <p>Suspendisse varius turpis efficitur erat laoreet dapibus. 
+          Mauris sollicitudin scelerisque commodo.Nunc dapibus mauris sed metus finibus posuere.</p>
+        <div class="col-md-4 w3l_schedule_bottom_right_grid1">
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          <h4>Customers</h4>
+          <h5 class="counter">653</h5>
+        </div>
+        <div class="col-md-4 w3l_schedule_bottom_right_grid1">
+          <i class="fa fa-calendar-o" aria-hidden="true"></i>
+          <h4>Events</h4>
+          <h5 class="counter">823</h5>
+        </div>
+        <div class="col-md-4 w3l_schedule_bottom_right_grid1">
+          <i class="fa fa-shield" aria-hidden="true"></i>
+          <h4>Awards</h4>
+          <h5 class="counter">45</h5>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+<!-- //schedule-bottom -->
+  <!-- banner-bootom-w3-agileits -->
+  <div class="banner-bootom-w3-agileits">
+  <div class="container">
+    <h3 class="wthree_text_info">What's <span>Trending</span></h3>
+  
+    <div class="col-md-5 bb-grids bb-left-agileits-w3layouts">
+      <a href="womens.html">
+         <div class="bb-left-agileits-w3layouts-inner grid">
+          <figure class="effect-roxy">
+              <img src="/elit/images/bb1.jpg" alt=" " class="img-responsive" />
+              <figcaption>
+                <h3><span>S</span>ale </h3>
+                <p>Upto 55%</p>
+              </figcaption>     
+            </figure>
+          </div>
+      </a>
+    </div>
+    <div class="col-md-7 bb-grids bb-middle-agileits-w3layouts">
+          <a href="mens.html">
+           <div class="bb-middle-agileits-w3layouts grid">
+                 <figure class="effect-roxy">
+              <img src="/elit/images/bottom3.jpg" alt=" " class="img-responsive" />
+              <figcaption>
+                <h3><span>S</span>ale </h3>
+                <p>Upto 55%</p>
+              </figcaption>     
+            </figure>
+            </div>
+        </a>
+        <a href="mens.html">
+          <div class="bb-middle-agileits-w3layouts forth grid">
+            <figure class="effect-roxy">
+              <img src="/elit/images/bottom4.jpg" alt=" " class="img-responsive">
+              <figcaption>
+                <h3><span>S</span>ale </h3>
+                <p>Upto 65%</p>
+              </figcaption>   
+            </figure>
+          </div>
+          </a>
+    <div class="clearfix"></div>
+  </div>
+  </div>
+    </div>
+<!--/grids-->
+      <div class="agile_last_double_sectionw3ls">
+            <div class="col-md-6 multi-gd-img multi-gd-text ">
+          <a href="womens.html"><img src="/elit/images/bot_1.jpg" alt=" "><h4>Flat <span>50%</span> offer</h4></a>
+          
+      </div>
+       <div class="col-md-6 multi-gd-img multi-gd-text ">
+          <a href="womens.html"><img src="/elit/images/bot_2.jpg" alt=" "><h4>Flat <span>50%</span> offer</h4></a>
+      </div>
+      <div class="clearfix"></div>
+     </div>             
+<!--/grids-->
+<!-- /new_arrivals --> 
+  <div class="new_arrivals_agile_w3ls_info"> 
+    <div class="container">
+        <h3 class="wthree_text_info">New <span>Arrivals</span></h3>   
+        <div id="horizontalTab">
+            <ul class="resp-tabs-list">
+              <li> Men's</li>
+              <li> Women's</li>
+              <li> Bags</li>
+              <li> Footwear</li>
+            </ul>
+          <div class="resp-tabs-container">
+          <!--/tab_one-->
+            <div class="tab1">
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/m1.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/m1.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Formal Blue Shirt</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$45.99</span>
+                      <del>$69.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Formal Blue Shirt" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/m2.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/m2.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Gabi Full Sleeve Sweatshirt</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$45.99</span>
+                      <del>$69.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Sweatshirt" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+                            <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/m3.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/m3.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Dark Blue Track Pants</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$80.99</span>
+                      <del>$89.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Dark Blue Track Pants" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/m4.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/m4.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Round Neck Black T-Shirt</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$190.99</span>
+                      <del>$159.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Black T-Shirt" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/m5.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/m5.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Men's Black Jeans</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$60.99</span>
+                      <del>$90.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Men's Black Jeans" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+                <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/m7.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/m7.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Analog Watch</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$160.99</span>
+                      <del>$290.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Analog Watch" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+                <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/m6.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/m6.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Reversible Belt</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$30.99</span>
+                      <del>$50.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Reversible Belt" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+                <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/m8.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/m8.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Party Men's Blazer</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$260.99</span>
+                      <del>$390.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Party Men's Blazer" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <!--//tab_one-->
+            <!--/tab_two-->
+            <div class="tab2">
+               <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/w1.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/w1.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">A-line Black Skirt</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$130.99</span>
+                      <del>$189.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="A-line Black Skirt" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/w2.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/w2.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Sleeveless Solid Blue Top</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$140.99</span>
+                      <del>$189.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Sleeveless Solid Blue Top" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/w3.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/w3.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Skinny Jeans</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$150.99</span>
+                      <del>$189.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Skinny Jeans " />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/w4.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/w4.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Black Basic Shorts</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$120.99</span>
+                      <del>$189.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Black Basic Shorts" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/w5.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/w5.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Pink Track Pants</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$220.99</span>
+                      <del>$389.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Pink Track Pants" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/w6.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/w6.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Analog Watch</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$320.99</span>
+                      <del>$489.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Analog Watch" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+                <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/w7.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/w7.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Ankle Length Socks</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$100.99</span>
+                      <del>$159.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Ankle Length Socks" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+                <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/w8.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/w8.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Reebok Women's Tights</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$130.99</span>
+                      <del>$169.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Reebok Women's Tights" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+           <!--//tab_two-->
+            <div class="tab3">
+                
+            <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/b1.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/b1.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Laptop Messenger Bag</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$140.99</span>
+                      <del>$169.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value=" Laptop Messenger Bag" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/b2.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/b2.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Puma Backpack</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$127.99</span>
+                      <del>$169.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Puma Backpack" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+                            <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/b3.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/b3.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html"> Laptop Backpack</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$120.99</span>
+                      <del>$189.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value=" Laptop Backpack" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/b4.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/b4.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Travel Duffel Bag </a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$190.99</span>
+                      <del>$259.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Travel Duffel Bag " />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+                          <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/b5.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/b5.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html"> Hand-held Bag </a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$190.99</span>
+                      <del>$259.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value=" Hand-held Bag " />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+                          <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/b6.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/b6.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Butterflies Bag </a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$190.99</span>
+                      <del>$259.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Butterflies Bag" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+                          <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/b7.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/b7.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Costa Swiss Bag </a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$290.99</span>
+                      <del>$359.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Costa Swiss Bag" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+                          <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/b8.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/b8.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Noble Designs Bag </a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$120.99</span>
+                      <del>$159.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Noble Designs Bag " />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="tab4">
               
+                  <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/s1.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/s1.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Running Shoes</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$80.99</span>
+                      <del>$89.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Running Shoes" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/s2.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/s2.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Shoetopia Lace Up</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$90.99</span>
+                      <del>$59.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Shoetopia Lace Up" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/s3.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/s3.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Steemo Casuals(Black)</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$90.99</span>
+                      <del>$59.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Steemo Casuals (Black)" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/s4.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/s4.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Benetton Flip Flops</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$40.99</span>
+                      <del>$99.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Benetton Flip Flops" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/s5.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/s5.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Moonwalk Bellies </a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$80.99</span>
+                      <del>$99.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Moonwalk Bellies" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/s6.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/s6.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Aero Canvas Loafers  </a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$120.99</span>
+                      <del>$199.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Aero Canvas Loafers" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/s7.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/s7.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Sparx Sporty Canvas Shoes</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$160.99</span>
+                      <del>$199.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Sparx Sporty Canvas Shoes" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+                <div class="col-md-3 product-men">
+                <div class="men-pro-item simpleCart_shelfItem">
+                  <div class="men-thumb-item">
+                    <img src="/elit/images/s8.jpg" alt="" class="pro-image-front">
+                    <img src="/elit/images/s8.jpg" alt="" class="pro-image-back">
+                      <div class="men-cart-pro">
+                        <div class="inner-men-cart-pro">
+                          <a href="single.html" class="link-product-add-cart">Quick View</a>
+                        </div>
+                      </div>
+                      <span class="product-new-top">New</span>
+                      
+                  </div>
+                  <div class="item-info-product ">
+                    <h4><a href="single.html">Women BLACK Heels</a></h4>
+                    <div class="info-product-price">
+                      <span class="item_price">$180.99</span>
+                      <del>$199.71</del>
+                    </div>
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                              <form action="#" method="post">
+                                <fieldset>
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="add" value="1" />
+                                  <input type="hidden" name="business" value=" " />
+                                  <input type="hidden" name="item_name" value="Women BLACK Heels" />
+                                  <input type="hidden" name="amount" value="30.99" />
+                                  <input type="hidden" name="discount_amount" value="1.00" />
+                                  <input type="hidden" name="currency_code" value="USD" />
+                                  <input type="hidden" name="return" value=" " />
+                                  <input type="hidden" name="cancel_return" value=" " />
+                                  <input type="submit" name="submit" value="Add to cart" class="button" />
+                                </fieldset>
+                              </form>
+                            </div>
+                                      
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
             </div>
           </div>
-
-
- <div class="modal fade" id="elIDdelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                           <!--ASIGNAMOS UN ID A ESTE DIV -->
-  <div class="modal-dialog modal-lg" id="mdialTamanio">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-     
+        </div>  
       </div>
-      <div class="modal-body">
-         
-             <img src="avisoEs.jpg">
- 
-      </div>
-      
     </div>
-  </div>
+  <!-- //new_arrivals --> 
+  <!-- /we-offer -->
+    <div class="sale-w3ls">
+      <div class="container">
+        <h6>We Offer Flat <span>40%</span> Discount</h6>
+ 
+        <a class="hvr-outline-out button2" href="single.html">Shop Now </a>
+      </div>
+    </div>
+  <!-- //we-offer -->
+<!--/grids-->
+<div class="coupons">
+    <div class="coupons-grids text-center">
+      <div class="w3layouts_mail_grid">
+        <div class="col-md-3 w3layouts_mail_grid_left">
+          <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+            <i class="fa fa-truck" aria-hidden="true"></i>
+          </div>
+          <div class="w3layouts_mail_grid_left2">
+            <h3>FREE SHIPPING</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur</p>
+          </div>
+        </div>
+        <div class="col-md-3 w3layouts_mail_grid_left">
+          <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+            <i class="fa fa-headphones" aria-hidden="true"></i>
+          </div>
+          <div class="w3layouts_mail_grid_left2">
+            <h3>24/7 SUPPORT</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur</p>
+          </div>
+        </div>
+        <div class="col-md-3 w3layouts_mail_grid_left">
+          <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+          </div>
+          <div class="w3layouts_mail_grid_left2">
+            <h3>MONEY BACK GUARANTEE</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur</p>
+          </div>
+        </div>
+          <div class="col-md-3 w3layouts_mail_grid_left">
+          <div class="w3layouts_mail_grid_left1 hvr-radial-out">
+            <i class="fa fa-gift" aria-hidden="true"></i>
+          </div>
+          <div class="w3layouts_mail_grid_left2">
+            <h3>FREE GIFT COUPONS</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur</p>
+          </div>
+        </div>
+        <div class="clearfix"> </div>
+      </div>
+
+    </div>
 </div>
-    
+<!--grids-->
+
+
 @endsection
 
 @section('script')
