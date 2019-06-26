@@ -62,10 +62,12 @@ class PublicController extends Controller
                             ->join('languages','languages.id','=','categories.language_id')
                             ->where('languages.abbr','=',$idioma)
                             ->paginate(8);
-
+            $categoria = DB::table('categories')
+            ->select('*')
+            ->get();
             // dd($toursPorCategoria);
             // return view("assets.pagina.".$idioma.".inicio",['tourPrincipal' => $toursPrincipal,'toursRecomendadosTren' => $toursRecomendadosTren,'toursRecomendadosCarro' => $toursRecomendadosCarro,'testimonio' => $testimonio,'toursPorCategoria' => $toursPorCategoria,'toursCan'=>$toursCan,'toursUnaPersona'=>$toursUnaPersona]);
-            return view("assets.pagina.".$idioma.".inicio",['toursPorCategoria' => $toursPorCategoria]);
+            return view("assets.pagina.".$idioma.".inicio",['toursPorCategoria' => $toursPorCategoria, 'categoria' => $categoria]);
         }else
         {
               

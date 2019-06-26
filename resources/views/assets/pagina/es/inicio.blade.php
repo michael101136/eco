@@ -304,12 +304,14 @@
     <div class="container">
         <h3 class="wthree_text_info">New <span>Arrivals</span></h3>   
         <div id="horizontalTab">
+        @foreach($categoria as $item)
             <ul class="resp-tabs-list">
-              <li> Men's</li>
-              <li> Women's</li>
+              <li> {{$item->name}}</li>
+              <!-- <li> Women's</li>
               <li> Bags</li>
-              <li> Footwear</li>
+              <li> Footwear</li> -->
             </ul>
+          @endforeach
           <div class="resp-tabs-container">
           <!--/tab_one-->
             <div class="tab1">
