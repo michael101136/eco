@@ -52,22 +52,54 @@ class PublicController extends Controller
             //                 ->where('language','=',$idioma)
             //                 ->where('status','=','1')
             //                 ->paginate(10);
+
+            $categoria = DB::table('categories')
+                            ->select('id','name')
+                            ->get();
+           $arrayTaskTour=[];
+
+           foreach($categoria as $key => $value)
+                {
+                  
+                   
+                    $arrayTaskTour[]=[
+
+                        'id' => $value->id,
+                        'name' => $value->name,
+                        'tour' => $toursPorCategoria=DB::table('tours')
+                                  ->select('tours.id','tours.slug','tours.img','tours.name as nametour','tours.price','categories.name as namecategorie','sub_categoria.name as nameSub')
+                                  ->join('categories_has_tours','categories_has_tours.tour_id','=','tours.id')
+                                  ->join('sub_categoria','sub_categoria.id','=','categories_has_tours.sub_categorie_id')
+                                  ->join('categories','categories.id','=','sub_categoria.id_categoria')
+                                  ->join('languages','languages.id','=','categories.language_id')
+                                  ->where('languages.abbr','=',$idioma)
+                                  ->where('categories.id','=',$value->id)
+                                  ->get()
+                    ];
+
+                  
+                }
+
+     
+         
             
 
-            $toursPorCategoria=DB::table('tours')
-                            ->select('tours.id','tours.slug','tours.name as nametour','tours.img','tours.price','categories.name as namecategorie')
-                            ->join('categories_has_tours','categories_has_tours.tour_id','=','tours.id')
-                            ->join('sub_categoria','sub_categoria.id','=','categories_has_tours.sub_categorie_id')
-                            ->join('categories','categories.id','=','sub_categoria.id_categoria')
-                            ->join('languages','languages.id','=','categories.language_id')
-                            ->where('languages.abbr','=',$idioma)
-                            ->paginate(8);
-            $categoria = DB::table('categories')
-            ->select('*')
-            ->get();
+
+            // $toursPorCategoria=DB::table('tours')
+            //                 ->select('tours.id','tours.slug','tours.name as nametour','tours.img','tours.price','categories.name as namecategorie')
+            //                 ->join('categories_has_tours','categories_has_tours.tour_id','=','tours.id')
+            //                 ->join('sub_categoria','sub_categoria.id','=','categories_has_tours.sub_categorie_id')
+            //                 ->join('categories','categories.id','=','sub_categoria.id_categoria')
+            //                 ->join('languages','languages.id','=','categories.language_id')
+            //                 ->where('languages.abbr','=',$idioma)
+            //                 ->get();
+            // dd($toursPorCategoria);
+
+
+            
             // dd($toursPorCategoria);
             // return view("assets.pagina.".$idioma.".inicio",['tourPrincipal' => $toursPrincipal,'toursRecomendadosTren' => $toursRecomendadosTren,'toursRecomendadosCarro' => $toursRecomendadosCarro,'testimonio' => $testimonio,'toursPorCategoria' => $toursPorCategoria,'toursCan'=>$toursCan,'toursUnaPersona'=>$toursUnaPersona]);
-            return view("assets.pagina.".$idioma.".inicio",['toursPorCategoria' => $toursPorCategoria, 'categoria' => $categoria]);
+            return view("assets.pagina.".$idioma.".inicio",['toursPorCategoria' => $arrayTaskTour, 'categoria' => $categoria,]);
         }else
         {
               
@@ -252,10 +284,7 @@ class PublicController extends Controller
     	return view("assets.pagina.".$idioma.".contact");
     }
 
-    public function contacto()
-    {
-    	return view("assets.pagina.es.contact");
-    }
+   
 
     public function testimony($idioma)
     {
