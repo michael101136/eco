@@ -75,20 +75,17 @@
                                     </div>
                                     <div class="col-sm-3 multi-gd-img">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="mens.html">Clothing</a></li>
-                                            <li><a href="mens.html">Wallets</a></li>
-                                            <li><a href="mens.html">Footwear</a></li>
-                                            <li><a href="mens.html">Watches</a></li>
-                                            <li><a href="mens.html">Accessories</a></li>
+                                            <li><a href="mens.html">Cocina</a></li>
+                                            <li><a href="mens.html">Lavanderia</a></li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-3 multi-gd-img">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="mens.html">Jewellery</a></li>
-                                            <li><a href="mens.html">Sunglasses</a></li>
-                                            <li><a href="mens.html">Perfumes</a></li>
-                                            <li><a href="mens.html">Beauty</a></li>
-                                            <li><a href="mens.html">Shirts</a></li>
+                                            <li><a href="mens.html">Partes</a></li>
+                                            <li><a href="mens.html">Accesorios</a></li>
+                                            <li><a href="mens.html">Químicos</a></li>
+                                            <li><a href="mens.html">Equipos</a></li>
+                                            <li><a href="mens.html">Capacitación</a></li>
                                         </ul>
                                     </div>
                                     <div class="clearfix"></div>
@@ -135,7 +132,7 @@
                                     <li><a href="typography.html">Typography</a></li>
                                 </ul>
                     </li>
-                    <li class=" menu__item"><a class="menu__link" href="contact.html">Contacto</a></li>
+                    <li class=" menu__item"><a class="menu__link" href="/contacto">Contacto</a></li>
                   </ul>
                 </div>
               </div>

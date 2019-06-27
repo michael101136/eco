@@ -125,7 +125,8 @@ Route::get('{lang?}/paquetes/', [ 'uses' => 'PublicController@tours' ])->name('p
 Route::get('{lang?}/tours/detalle/{slug?}/{can?}', ['uses' => 'PublicController@tour'])->name('detalleEsTour');
 Route::get('{lang?}/nosotros/', [ 'uses' => 'PublicController@about' ])->name('nosotrosEs');
 Route::get('{lang?}/terminos_condiciones/', [ 'uses' => 'PublicController@terminos_condiciones' ])->name('condicionesEs');
-Route::get('{lang?}/contacto/', [ 'uses' => 'PublicController@contact' ])->name('contactoEs');
+// Route::get('{lang?}/contacto/', [ 'uses' => 'PublicController@contact' ])->name('contactoEs');
+Route::get('/contacto', [ 'uses' => 'PublicController@contacto' ])->name('contacto');
 Route::get('{lang?}/testimonio/', [ 'uses' => 'PublicController@testimony' ])->name('testimonioEs');
 Route::get('{lang?}/blog/', [ 'uses' => 'PublicController@blog' ])->name('blogEs');
 

@@ -250,7 +250,11 @@ class PublicController extends Controller
     {
 
     	return view("assets.pagina.".$idioma.".contact");
+    }
 
+    public function contacto()
+    {
+    	return view("assets.pagina.es.contact");
     }
 
     public function testimony($idioma)
