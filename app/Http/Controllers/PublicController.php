@@ -127,17 +127,17 @@ class PublicController extends Controller
                 $categoriaa = DB::table('categories')
                           ->select('id','name')
                                   ->get();
-                 $arrayTaskTour=[];
+                 $arrayTaskCategoria=[];
 
                  foreach($categoriaa as $key => $value)
                       {
                         
                          
-                          $arrayTaskTour[]=[
+                          $arrayTaskCategoria[]=[
 
                               'id' => $value->id,
                               'name' => $value->name,
-                              'tour' => $toursPorCategoria=DB::table('sub_categoria')
+                              'subProducto' => $toursPorCategoria=DB::table('sub_categoria')
                                         ->select('sub_categoria.name as nameSub')
                                         ->where('sub_categoria.id_categoria','=',$value->id)
                                         ->get()
@@ -150,7 +150,7 @@ class PublicController extends Controller
             $todoTours=publicTours::searchTours($idioma,$categoria);
      
 
-       return view("assets.pagina.".$idioma.".tours",['categoria' =>$categorias,'tours' => $todoTours,'ItempCategoria' => $categoria]);
+       return view("assets.pagina.".$idioma.".tours",['categoria' =>$arrayTaskCategoria,'tours' => $todoTours,'ItempCategoria' => $categoria]);
 
     }
 
