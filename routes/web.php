@@ -120,6 +120,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 /*_______________ Pagina web en español _____________________________________________________________________________________________________________*/
 Route::get('/contacto', [ 'uses' => 'PublicController@contacto' ])->name('contacto');
+Route::get('detalleProducto',['uses'=>'PublicController@detalleproducto'])->name('detalleProducto');
 Route::get('/{idioma?}', [ 'uses' => 'PublicController@index' ]);
 Route::get('{lang?}/paquetes/', [ 'uses' => 'PublicController@tours' ])->name('paquetesEs');
 Route::get('{lang?}/tours/detalle/{slug?}/{can?}', ['uses' => 'PublicController@tour'])->name('detalleEsTour');
@@ -135,6 +136,7 @@ Route::post('toursOpcion/', [ 'uses' => 'PublicController@toursOpcion' ])->name(
 Route::post('buscarTours/', [ 'uses' => 'PublicController@buscarTours' ])->name('buscarTours');
 Route::get('{lang?}/categoria/{search?}', [ 'uses' => 'PublicController@tours' ])->name('paquetesCategoriaES');
 Route::get('{lang?}/tours/filtro/{precio?}/{departamento?}', [ 'uses' => 'PublicController@toursPrecioCiudad' ])->name('paquetesCategoriaPrecioCiudadES');
+
 
 /*_______________ Fin web en español _____________________________________________________________________________________________________________*/
 

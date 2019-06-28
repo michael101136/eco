@@ -53,7 +53,7 @@
                 <div class="clearfix"></div>
             </div>
         
-            @foreach($tours as $item)
+                    @foreach($tours as $item)
                             <div class="col-md-4 product-men">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
@@ -61,7 +61,7 @@
                                         <img src="/{{$item->img}}" alt="" class="pro-image-back">
                                             <div class="men-cart-pro">
                                                 <div class="inner-men-cart-pro">
-                                                    <a href="single.html" class="link-product-add-cart">Quick View</a>
+                                                    <a href="/detalleProducto" class="link-product-add-cart">Ver detalle</a>
                                                 </div>
                                             </div>
                                             <span class="product-new-top"> {{$item->categoriesName}}</span>
