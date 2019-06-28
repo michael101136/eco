@@ -217,6 +217,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <!-- //cart-js --> 
 <!-- script for responsive tabs -->           
 
+{!!Html::script('elit/js/imagezoom.js')!!}
 {!!Html::script('elit/js/easy-responsive-tabs.js')!!}
 <script>
   $(document).ready(function () {
