@@ -61,7 +61,7 @@
                                         <img src="/{{$item->img}}" alt="" class="pro-image-back">
                                             <div class="men-cart-pro">
                                                 <div class="inner-men-cart-pro">
-                                                    <a href="/detalleProducto" class="link-product-add-cart">Ver detalle</a>
+                                                    <a href="{{route('detalleProducto',['producto'=>$item->slug])}}" class="link-product-add-cart">Ver detalle</a>
                                                 </div>
                                             </div>
                                             <span class="product-new-top"> {{$item->categoriesName}}</span>

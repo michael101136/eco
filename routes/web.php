@@ -112,7 +112,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/contacto', [ 'uses' => 'PublicController@contacto' ])->name('contacto');
-Route::get('detalleProducto',['uses'=>'PublicController@detalleproducto'])->name('detalleProducto');
+Route::get('detalleProducto/{slug?}',['uses'=>'PublicController@detalleproducto'])->name('detalleProducto');
 Route::get('/{idioma?}', [ 'uses' => 'PublicController@index' ]);
 Route::get('{lang?}/categoria/{search?}', [ 'uses' => 'PublicController@tours' ])->name('paquetesCategoriaES');
 

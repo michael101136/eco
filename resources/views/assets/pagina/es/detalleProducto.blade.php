@@ -4,28 +4,29 @@
 
 <div class="banner-bootom-w3-agileits">
 	<div class="container">
+
+
+
+
+    
 	     <div class="col-md-4 single-right-left ">
 			<div class="grid images_3_of_2">
 				<div class="flexslider">
 					
 					<ul class="slides">
-						<li data-thumb="images/d2.jpg">
-							<div class="thumb-image"> <img src="images/d2.jpg" data-imagezoom="true" class="img-responsive"> </div>
-						</li>
-						<li data-thumb="images/d1.jpg">
-							<div class="thumb-image"> <img src="images/d1.jpg" data-imagezoom="true" class="img-responsive"> </div>
+					@foreach($slider as $item)
+						<li data-thumb="/{{$item->path}}">
+							<div class="thumb-image"> <img src="/{{$item->path}}" data-imagezoom="true" class="img-responsive"> </div>
 						</li>	
-						<li data-thumb="images/d3.jpg">
-							<div class="thumb-image"> <img src="images/d3.jpg" data-imagezoom="true" class="img-responsive"> </div>
-						</li>
+    @endforeach
 					</ul>
 					<div class="clearfix"></div>
 				</div>	
 			</div>
 		</div>
 		<div class="col-md-8 single-right-left simpleCart_shelfItem">
-					<h3>Big Wing Sneakers  (Navy)</h3>
-					<p><span class="item_price">$650</span> <del>- $900</del></p>
+					<h3>{{$detalleproducto->name}}</h3>
+					<p><span class="item_price">S/. {{$detalleproducto->price}}</span> <del>  </del></p>
 					<div class="rating1">
 						<span class="starRating">
 							<input id="rating5" type="radio" name="rating" value="5">

@@ -117,12 +117,23 @@ class PublicController extends Controller
     }
 
    
-    public function detalleproducto()
+    public function detalleproducto($slug)
     {
-        return view('assets.pagina.es.detalleProducto');
+        $detalleproducto = Tour::where('slug', '=', $slug)->get()[0];
 
+        $slider=db::table('tours')
+        ->select('tours.name','tours.price','images.path')
+        ->join('multimedia','multimedia.id','=','tours.multimedia_id')
+        ->join('images','images.multimedia_id','=','multimedia.id')
+        ->where('slug','=',$slug)
+        ->get();
+
+
+
+        // dd($slider);
+
+        return view('assets.pagina.es.detalleProducto',['detalleproducto'=>$detalleproducto,'slider'=>$slider]);
     }
-   
    
 
 }
