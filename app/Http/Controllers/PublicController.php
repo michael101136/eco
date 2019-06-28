@@ -109,55 +109,46 @@ class PublicController extends Controller
         
     }
 
-    public function tours($idioma,$categoria,$precio='')
+    public function tours($idioma,$categoria)
     {
-         if($categoria=='cusco' ||  $categoria=='puno' ||  $categoria=='arequipa' ||  $categoria=='lima' ||  $categoria=='selva' ||  $categoria=='nazca'||  $categoria=='ica' ||  $categoria=='bolivia' ||  $categoria=='para_una_persona' )
-         {
-            
-            
-             $categorias = DB::table('languages')
-                ->select('categories.name','categories.description','languages.abbr','categories.id')
-                ->join('categories', 'languages.id', '=', 'categories.language_id')
-                ->where('languages.abbr','=',$idioma)
-                ->get();
-                
-             if($categoria=='para_una_persona')
-             {
-               
-                 $todoTours=publicTours::searchToursCan($idioma,3); 
-                 
-                 $categoria="Para una persona";
-             }else 
-             {
-                 $todoTours=publicTours::searchToursPais($idioma,$categoria); 
-             }
-            
-
-           
-          
-
-            return view("assets.pagina.".$idioma.".tours",['categoria' =>$categorias,'tours' => $todoTours,'ItempCategoria' => $categoria]);
-
-
-         }else
-         {
-            
-             // $ItempCategoria = DB::table('categories')
-             //    ->select('categories.name','categories.description')
-             //    ->where('categories.name','=',$categoria)
-             //    ->get()[0];
+     
+         
+        
 
             $categorias = DB::table('languages')
                 ->select('categories.name','categories.description','languages.abbr','categories.id')
                 ->join('categories', 'languages.id', '=', 'categories.language_id')
+                ->join('sub_categoria', 'sub_categoria.id_categoria', '=', 'categories.id')
+                ->join('categories_has_tours','categories_has_tours.sub_categorie_id','=','sub_categoria.id')
                 ->where('languages.abbr','=',$idioma)
                 ->get();
-       
+
+
+                $categoriaa = DB::table('categories')
+                          ->select('id','name')
+                                  ->get();
+                 $arrayTaskTour=[];
+
+                 foreach($categoriaa as $key => $value)
+                      {
+                        
+                         
+                          $arrayTaskTour[]=[
+
+                              'id' => $value->id,
+                              'name' => $value->name,
+                              'tour' => $toursPorCategoria=DB::table('sub_categoria')
+                                        ->select('sub_categoria.name as nameSub')
+                                        ->where('sub_categoria.id_categoria','=',$value->id)
+                                        ->get()
+                          ];
+
+                        
+                      }
+
+
             $todoTours=publicTours::searchTours($idioma,$categoria);
      
-
-         }
-        
 
        return view("assets.pagina.".$idioma.".tours",['categoria' =>$categorias,'tours' => $todoTours,'ItempCategoria' => $categoria]);
 
