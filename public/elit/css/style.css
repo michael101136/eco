@@ -342,7 +342,7 @@ i.fa.fa-shopping-bag.top_logo_agile_bag {
 /*-- //header-bot --*/
 /*-- banner-top --*/
 .ban-top{
-	background:#000;
+	background:#004bd9;
     padding: 0px 0;
 }
 .dropdown-menu.columns-3 {
@@ -476,13 +476,13 @@ i.fa.fa-shopping-bag.top_logo_agile_bag {
 }
 
 .menu--shylock .menu__link::before {
-	background: #2fdab8;
+	background:#0583F2 ;
 	-webkit-transition-delay: 0.4s;
 	transition-delay: 0.4s;
 }
 
 .menu--shylock .menu__link::after {
-	background: #2fdab8;
+	background: #0583F2 ;
 }
 a.menu__link {
     color: #fff !important;
@@ -516,7 +516,7 @@ letter-spacing: 2px;
     width: 21%;
 }
 .box_1 {
-    background: #2fdab8;
+    background: #004bd9;
     padding: 15px 22px;
     text-align: center;
 }
@@ -1260,12 +1260,12 @@ position:relative;
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
-  background: #2fdab8;
+  background: #0583F2;
 }
 .hvr-outline-out:before {
   content: '';
   position: absolute;
-  border: #2fdab8 solid 4px;
+  border: #0583F2 solid 4px;
   top: 0;
   right: 0;
   bottom: 0;
@@ -1372,7 +1372,7 @@ position:relative;
 .snipcart-details input.button {
     font-size: 13px;
     color: #fff;
-    background: #2fdab8;
+    background: #0583F2;
     text-decoration: none;
     position: relative;
     border: none;
@@ -1385,7 +1385,7 @@ position:relative;
     font-weight: 600;
 }
 .agile_top_brand_left_grid:hover .snipcart-details input.button,.snipcart-details input.button:hover{
-    background:#2fdab8;
+    background:#0583F2 ;
 }
 .product_list_header input.button {
     color: #fff;
@@ -1453,7 +1453,7 @@ position:relative;
 button.w3view-cart {
     outline: none;
     border: none;
-    background: #17c3a2;
+    background: #004bd9;
     width: 48px;
     height: 43px;
     font-size: 24px;
@@ -1612,7 +1612,7 @@ button.w3view-cart {
     top: 83.5%;
 }
 .link-product-add-cart:hover {
-    background: #2fdab8 none repeat scroll 0 0;
+    background: #bf5d39 none repeat scroll 0 0;
     color: #fff;
 }
 /*-- //effect --*/

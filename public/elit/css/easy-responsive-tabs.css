@@ -17,7 +17,7 @@ p {
     list-style: none;
     cursor: pointer;
     float: left;
-    color: #2A2B2F;
+    color: #000000;
     width: 25%;
     text-align: center;
     font-size: 1em;
@@ -47,7 +47,7 @@ h2.resp-accordion {
   display: none;
 }
 .resp-tab-active {
-  border-bottom: 4px solid #fc636b;
+  border-bottom: 4px solid #004bd9;
   margin-bottom: -1px !important;
   position:relative;
   background:#fc636b;
@@ -57,7 +57,7 @@ h2.resp-accordion {
     position: absolute;
     width: 0;
     height: 0;
-    border-top: 10px solid #fc636b;
+    border-top: 10px solid #004bd9;
     border-left: 10px solid rgba(69, 42, 21, 0);
     border-right: 10px solid rgba(199, 57, 57, 0);
     left: 45%;
@@ -70,7 +70,7 @@ h2.resp-accordion {
 }
 
 .resp-tab-active {
-     background-color:#fc636b;
+     background-color:#004bd9;
 }
 
 .resp-content-active,
