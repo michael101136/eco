@@ -180,10 +180,11 @@ class publicTours
 		{
 		
          $toursPublic = DB::table('languages')
-			        ->select('tours.id','tours.name','tours.tipo_tour','tours.description_short','tours.img','tours.price','tours.slug','categories.name as categoriesName')
-			        ->join('categories', 'languages.id', '=', 'categories.language_id')
-			        ->join('categories_has_tours as cat_t', 'cat_t.categorie_id', '=', 'categories.id')
-			        ->join('tours', 'cat_t.tour_id', '=', 'tours.id')
+			       ->select('tours.id','tours.name','tours.description_short','tours.img','tours.price','tours.slug','categories.description as categoriesName')
+			          ->join('categories', 'languages.id', '=', 'categories.language_id')
+			        ->join('sub_categoria', 'sub_categoria.id_categoria', '=', 'categories.id')
+			        ->join('categories_has_tours','categories_has_tours.sub_categorie_id','=','sub_categoria.id')
+			        ->join('tours', 'categories_has_tours.tour_id', '=', 'tours.id')
 			        ->where("languages.abbr","=",$abbr)
 			        ->where("categories.name","=",$search)
 			        ->paginate(50);    

@@ -67,7 +67,7 @@
                     <li class="active menu__item menu__item--current"><a class="menu__link" href="index.html">Inicio <span class="sr-only">(current)</span></a></li>
                     <li class=" menu__item"><a class="menu__link" href="about.html">Nosotros</a></li>
                     <li class="dropdown menu__item">
-                        <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categoria <span class="caret"></span></a>
+                        <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'vivnecial'])}}" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categoria <span class="caret"></span></a>
                             <ul class="dropdown-menu multi-column columns-3">
                                 <div class="agile_inner_drop_nav_info">
                                     <div class="col-sm-6 multi-gd-img1 multi-gd-text ">
@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="col-sm-3 multi-gd-img">
                                         <ul class="multi-column-dropdown">
-                                            <li><a href="mens.html">Cocina</a></li>
+                                            <li><a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'cocina'])}}">Cocina</a></li>
                                             <li><a href="mens.html">Lavanderia</a></li>
                                         </ul>
                                     </div>
