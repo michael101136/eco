@@ -13,17 +13,15 @@
 <!-- header-bot -->
 <div class="header-bot">
     <div class="header-bot_inner_wthreeinfo_header_mid">
-        <div class="col-md-4 header-middle">
-            <form action="#" method="post">
-                    <input type="search" name="search" placeholder="Search here..." required="">
-                    <input type="submit" value=" ">
-                <div class="clearfix"></div>
-            </form>
+        <div class="col-md-8 header-middle">
+            <a class="menu__link" href="/">
+                <img src="/logo.png" style="width: 30%;position: absolute; margin-top: -40px;">
+               {{--  <h1><a href="index.html"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1> --}}
+           </a>
+
         </div>
         <!-- header-bot -->
-            <div class="col-md-4 logo_agile">
-                <h1><a href="index.html"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
-            </div>
+           
         <!-- header-bot -->
         <div class="col-md-4 agileits-social top_content">
             <ul class="social-nav model-3d-0 footer-social w3_agile_social">
@@ -65,37 +63,44 @@
                 <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav menu__list">
                     <li class="active menu__item menu__item--current"><a class="menu__link" href="/">Inicio <span class="sr-only">(current)</span></a></li>
-                    <li class=" menu__item"><a class="menu__link" href="about.html">Nosotros</a></li>
-          
                     <li class="dropdown menu__item">
-                        <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'vivnecial'])}}" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categoria <span class="caret"></span></a>
-                            <ul class="dropdown-menu multi-column columns-3">
-                                <div class="agile_inner_drop_nav_info">
-                                    <div class="col-sm-6 multi-gd-img1 multi-gd-text ">
-                                        <a href="mens.html"><img src="/elit/images/top2.jpg" alt=" "/></a>
-                                    </div>
-                                    <div class="col-sm-3 multi-gd-img">
-                                        <ul class="multi-column-dropdown">
-                                            <li><a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'cocina'])}}">Cocina</a></li>
-                                            <li><a href="mens.html">Lavanderia</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-3 multi-gd-img">
-                                        <ul class="multi-column-dropdown">
-                                            <li><a href="mens.html">Partes</a></li>
-                                            <li><a href="mens.html">Accesorios</a></li>
-                                            <li><a href="mens.html">Químicos</a></li>
-                                            <li><a href="mens.html">Equipos</a></li>
-                                            <li><a href="mens.html">Capacitación</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </ul>
+                        <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'cocina'])}}" class="dropdown-toggle menu__link" >Productos</a>
+                            
                     </li>
-
+                     <li class=" menu__item"><a class="menu__link" href="about.html">Nosotros</a></li>
                
-                    <li class=" menu__item"><a class="menu__link" href="/contacto">Contacto</a></li>
+                    <li class="menu__item"><a class="menu__link" href="/contacto">Contacto</a></li>
+                      <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" class="active" >
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    @if (Auth::guest())
+                                         Entrar
+                                    @else
+                                    {{ str_limit(auth()->user()->name,8)}}
+                                    @endif
+                                   
+                                    
+                                    <span class="caret"></span>
+                                    </a>
+                                <ul class="dropdown-menu " >
+                                    <li>
+                                        
+                                        @if (Auth::guest())
+                                           <a href="{{ route('register')}}">
+                                              Crear cuenta</a>
+                                          <a href="{{ route('login')}}">
+                                              Iniciar sesi&oacute;n</a>
+                                        @else
+                                        <a href="{{ route('logout') }}">Cerrar sesi&oacute;n</a>
+                                        
+                                        @endif
+                                       
+                                   
+                                        
+                                    </li>
+                                
+                                </ul>
+                            </li>
                   </ul>
                 </div>
               </div>
