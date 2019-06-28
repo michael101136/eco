@@ -103,29 +103,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <div class="footer">
-  
-    <div class="col-md-6 footer-left">
-          
-          <ul class="social-nav model-3d-0 footer-social w3_agile_social two">
-             <li><a href="#" class="facebook">
-                                    <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-                                    <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
-                                <li><a href="#" class="twitter"> 
-                                    <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                                    <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
-                                <li><a href="#" class="instagram">
-                                    <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                                    <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
-                                <li><a href="#" class="pinterest">
-                                    <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-                                    <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
-          </ul>
 
+    <div class="col-md-6 footer-left">     
+        <ul class="social-nav model-3d-0 footer-social w3_agile_social two">
+              <li><a href="#" class="facebook">
+                  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                  <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+              <li><a href="#" class="twitter"> 
+                  <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                  <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+              <li><a href="#" class="instagram">
+                  <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                  <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+              <li><a href="#" class="pinterest">
+                  <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                  <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
+        </ul>
+
+    </div>
+      <div class="col-md-6 " >
+        
+      <!-- <p class="copy-right">Todos los derechos reservados | 2019<a href=" "></a></p> -->
       </div>
-      <div class="col-md-6 ">
-      <p class="copy-right">Todos los derechos reservados | 2019<a href=" "></a></p>
-      </div>
-  
+
 </div>
 <!-- //footer -->
 

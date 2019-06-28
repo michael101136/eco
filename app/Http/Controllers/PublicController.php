@@ -439,9 +439,12 @@ class PublicController extends Controller
                }
                         
             }
-                
-            
              
+    }
+    public function detalleproducto()
+    {
+        return view('assets.pagina.es.detalleProducto');
+
     }
    
    
