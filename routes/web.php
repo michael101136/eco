@@ -110,11 +110,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 /*_______________ Pagina web en español _____________________________________________________________________________________________________________*/
 
+
 Route::get('/contacto', [ 'uses' => 'PublicController@contacto' ])->name('contacto');
 Route::get('detalleProducto',['uses'=>'PublicController@detalleproducto'])->name('detalleProducto');
 Route::get('/{idioma?}', [ 'uses' => 'PublicController@index' ]);
 Route::get('{lang?}/categoria/{search?}', [ 'uses' => 'PublicController@tours' ])->name('paquetesCategoriaES');
-Route::get('{lang?}/tours/filtro/{precio?}/{departamento?}', [ 'uses' => 'PublicController@toursPrecioCiudad' ])->name('paquetesCategoriaPrecioCiudadES');
 
 
 /*_______________ Fin web en español _____________________________________________________________________________________________________________*/
