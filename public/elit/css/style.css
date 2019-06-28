@@ -1589,7 +1589,7 @@ button.w3view-cart {
 }
 .men-thumb-item img {
     transition: all 0.5s ease-out 0s;
-    padding: 52px 50px 20px;
+    padding:52px 4px -1px;
 }
 .men-thumb-item:hover .men-cart-pro {
     opacity: 1;
