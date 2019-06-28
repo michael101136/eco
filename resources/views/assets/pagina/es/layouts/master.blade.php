@@ -14,6 +14,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 {!!Html::style('elit/css/style.css')!!}
 {!!Html::style('elit/css/font-awesome.css')!!}
 {!!Html::style('elit/css/easy-responsive-tabs.css')!!}
+{!!Html::style('elit/css/flexslider.css')!!}
 
 <!-- //for bootstrap working -->
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
@@ -244,6 +245,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
   {!!Html::script('elit/js/jquery.waypoints.min.js')!!}
   {!!Html::script('elit/js/jquery.waypoints.min.js')!!}
+  {!!Html::script('elit/js/jquery.flexslider.js')!!}
+
+  <script>
+            // Can also be used with $(document).ready()
+              $(window).load(function() {
+                $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: "thumbnails"
+                });
+              });
+            </script>
   <script>
     $('.counter').countUp();
   </script>
