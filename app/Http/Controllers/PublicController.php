@@ -103,7 +103,7 @@ class PublicController extends Controller
             $todoTours=publicTours::searchTours($idioma,$categoria);
      
 
-       return view("assets.pagina.".$idioma.".tours",['categoria' =>$arrayTaskCategoria,'tours' => $todoTours,'ItempCategoria' => $categoria]);
+       return view("assets.pagina.".$idioma.".productos",['categoria' =>$arrayTaskCategoria,'tours' => $todoTours,'ItempCategoria' => $categoria]);
 
     }
 
