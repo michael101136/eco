@@ -66,6 +66,7 @@
                   <ul class="nav navbar-nav menu__list">
                     <li class="active menu__item menu__item--current"><a class="menu__link" href="/">Inicio <span class="sr-only">(current)</span></a></li>
                     <li class=" menu__item"><a class="menu__link" href="about.html">Nosotros</a></li>
+          
                     <li class="dropdown menu__item">
                         <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'vivnecial'])}}" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categoria <span class="caret"></span></a>
                             <ul class="dropdown-menu multi-column columns-3">
@@ -92,36 +93,8 @@
                                 </div>
                             </ul>
                     </li>
-                    <li class="dropdown menu__item">
-                        <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Women's wear <span class="caret"></span></a>
-                            <ul class="dropdown-menu multi-column columns-3">
-                                <div class="agile_inner_drop_nav_info">
-                                    <div class="col-sm-3 multi-gd-img">
-                                        <ul class="multi-column-dropdown">
-                                            <li><a href="womens.html">Clothing</a></li>
-                                            <li><a href="womens.html">Wallets</a></li>
-                                            <li><a href="womens.html">Footwear</a></li>
-                                            <li><a href="womens.html">Watches</a></li>
-                                            <li><a href="womens.html">Accessories</a></li>
-                                            <li><a href="womens.html">Bags</a></li>
-                                            <li><a href="womens.html">Caps & Hats</a></li>
-                                        </ul>
-                                    </div>
-                                   
-                                    <div class="col-sm-6 multi-gd-img multi-gd-text ">
-                                        <a href="womens.html"><img src="/elit/images/top1.jpg" alt=" "/></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </ul>
-                    </li>
-                    <li class="menu__item dropdown">
-                       <a class="menu__link" href="#" class="dropdown-toggle" data-toggle="dropdown">Short Codes <b class="caret"></b></a>
-                                <ul class="dropdown-menu agile_short_dropdown">
-                                    <li><a href="icons.html">Web Icons</a></li>
-                                    <li><a href="typography.html">Typography</a></li>
-                                </ul>
-                    </li>
+
+               
                     <li class=" menu__item"><a class="menu__link" href="/contacto">Contacto</a></li>
                   </ul>
                 </div>
