@@ -64,7 +64,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav menu__list">
-                    <li class="active menu__item menu__item--current"><a class="menu__link" href="index.html">Inicio <span class="sr-only">(current)</span></a></li>
+                    <li class="active menu__item menu__item--current"><a class="menu__link" href="/">Inicio <span class="sr-only">(current)</span></a></li>
                     <li class=" menu__item"><a class="menu__link" href="about.html">Nosotros</a></li>
                     <li class="dropdown menu__item">
                         <a href="{{route('paquetesCategoriaES',['idioma'=> 'es','categoria'=>'vivnecial'])}}" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categoria <span class="caret"></span></a>
@@ -107,17 +107,7 @@
                                             <li><a href="womens.html">Caps & Hats</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col-sm-3 multi-gd-img">
-                                        <ul class="multi-column-dropdown">
-                                            <li><a href="womens.html">Jewellery</a></li>
-                                            <li><a href="womens.html">Sunglasses</a></li>
-                                            <li><a href="womens.html">Perfumes</a></li>
-                                            <li><a href="womens.html">Beauty</a></li>
-                                            <li><a href="womens.html">Shirts</a></li>
-                                            <li><a href="womens.html">Sunglasses</a></li>
-                                            <li><a href="womens.html">Swimwear</a></li>
-                                        </ul>
-                                    </div>
+                                   
                                     <div class="col-sm-6 multi-gd-img multi-gd-text ">
                                         <a href="womens.html"><img src="/elit/images/top1.jpg" alt=" "/></a>
                                     </div>

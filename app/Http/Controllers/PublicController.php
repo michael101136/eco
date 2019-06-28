@@ -109,10 +109,11 @@ class PublicController extends Controller
 
   
   
-    public function contact($idioma)
+    public function contacto()
     {
 
-    	return view("assets.pagina.".$idioma.".contact");
+      $idioma='es';
+    	return view("assets.pagina.".$idioma.".contacto");
     }
 
    
