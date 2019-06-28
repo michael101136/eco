@@ -16,7 +16,7 @@
                 <ul class="tree-list-pad">
 
                      @foreach($categoria as $key => $value)
-                        <li><input type="checkbox" checked="checked" id="item-0" /><label for="item-0"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> {{$value['name']}}</label>
+                        <li><input type="checkbox" checked="checked" id="item-{{$value['id']}}" /><label for="item-0"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> {{$value['name']}}</label>
                             <ul>
                                   @foreach($value['subProducto'] as $key => $values)
                                     
