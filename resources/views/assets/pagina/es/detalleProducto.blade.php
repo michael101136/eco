@@ -16,9 +16,9 @@
 					<ul class="slides">
 					@foreach($slider as $item)
 						<li data-thumb="/{{$item->path}}">
-							<div class="thumb-image"> <img src="/{{$item->path}}" data-imagezoom="true" class="img-responsive"> </div>
+							<div class="thumb-image"> <img src="/{{$item->path}}" style="widht:397px; height:467px;" data-imagezoom="true" class="img-responsive"> </div>
 						</li>	
-    @endforeach
+                    @endforeach
 					</ul>
 					<div class="clearfix"></div>
 				</div>	
@@ -113,9 +113,9 @@
 	<div class="responsive_tabs_agileits"> 
 				<div id="horizontalTab">
 						<ul class="resp-tabs-list">
-							<li>Description</li>
-							<li>Reviews</li>
-							<li>Information</li>
+							<li>DESCRIPCIÓN</li>
+							<li>DETALLES</li>
+							<li>INFORMACIÓN</li>
 						</ul>
 					<div class="resp-tabs-container">
 					<!--/tab_one-->
